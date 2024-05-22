@@ -1,0 +1,618 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+:root {
+    --bg-color: #fceee9;
+    --second-bg-color: #ddd1cc;
+    --text-color: #19191E;
+    --main-color: #FA5F55;
+}
+
+p {
+    color: var(--text-color);
+    width:50%;
+    font-size: 20px;
+    font-family: 'Vollkorn';
+}
+
+span {
+    color: var(--text-color);
+  }
+
+/*Header and Nav */  
+header {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    padding: 10px 0; /* Add some padding */
+    z-index: 1000; /* Ensure navbar is above other content */
+}
+
+main {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+nav ul li a:hover, .nav  ul li a.active {
+    color: var(--main-color);
+    transition: .2s;
+    text-decoration: none;
+}
+/* End Header and Nav */ 
+
+/*Home */ 
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    background-color: var(--bg-color);
+}
+
+#home img {
+    max-width: 100%;
+    height: auto;
+}
+
+.active{
+  transform: translateX(0);
+  opacity: 1;
+}
+
+h1, h2{
+    font-family: 'Whisper';
+    font-size: 100px;
+    color: var(--main-color);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    white-space: nowrap; /* Ensure the text doesn't wrap */
+    overflow: hidden; /* Hide the parts of text not yet "painted" */
+    animation: paintText 5s forwards; /* Adjust time as needed */
+}
+
+h2 {
+    font-size: 55px;
+    color: var(--main-color);
+}
+
+@keyframes paintText {
+    from {
+        clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+#home p {
+    color: var(--text-color);
+    width:50%;
+    font-size: 20px;
+    font-family: 'Vollkorn';
+    animation-name: slideUp;
+    animation-duration: 2.5s;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0%);
+        opacity: 1;
+      }
+}
+
+.resume-button {
+    display: inline-block;
+    background-color: var(--main-color);
+    color: #19191E;
+    padding: 5px 15px;
+    text-decoration: none;
+    margin-top: 0px;
+    border-radius: 5px;
+    transition: .5s ease;
+    animation-name: slideUp;
+    animation-duration: 4s;
+}
+
+.resume-button:hover {
+    color: #19191E;
+    box-shadow: 0px -18px 38px -11px rgba(25, 25, 30, 0.322) inset;
+}
+/* End Home */ 
+
+
+
+.container {
+    position: relative; /* Ensures absolute positioning is relative to this container */
+    width: 100%; /* Adjust as necessary */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: 0;
+}
+
+.slide-in {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+    width: 100%; /* Adjust based on your layout */
+    clip-path: inset(0 0 0 100%); /* Initially hide the content by clipping it from the left */
+    animation: brushStroke 5s forwards;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes brushStroke {
+    from { clip-path: inset(0 0 0 100%); } /* Start with the content fully clipped on the left */
+    to { clip-path: inset(0 0 0 0); } /* Reveal the content to the full width */
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 150px 150px;
+    background: var(--second-bg-color);
+  }
+
+  #about img {
+    display: block;
+    margin-left: auto;
+    size: 100%;
+    float: right;
+  }
+
+.about-content h1 {
+    text-align: left;
+    line-height: 1.2;
+  }
+  
+  .about-content p {
+    padding: 0;
+    margin: 2rem 0 3rem;
+    color: var(--text-color);
+    width:50%;
+    font-size: 20px;
+    font-family: 'Vollkorn';
+  }
+
+
+
+#portfolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 150px 150px;
+  }
+
+  @keyframes brushStrokeReverse {
+    from { clip-path: inset(0 0 0 0); }
+    to { clip-path: inset(0 0 0 100%); }
+}
+
+  .portfolio-box img {
+    position: absolute;
+    z-index: 0;
+    rotate: -10deg;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    clip-path: inset(0 0 0 100%); /* Ensure it matches the start of the reverse animation */
+    animation: brushStrokeReverse 2s forwards; /* Default state with reverse animation */
+}
+
+.portfolio-container .portfolio-box:hover img {
+    visibility: visible;
+    animation: brushStroke 1s forwards; /* Animate to reveal on hover */
+}
+
+
+.portfolio-container .portfolio-box:hover p {
+    color: var(--second-bg-color);
+    transition-duration: 3s;
+}
+
+.portfolio-container .portfolio-box:hover a {
+    color: var(--text-color);
+    transition-duration: 3s;
+}
+
+.portfolio-container .portfolio-box:hover i,
+.portfolio-container .portfolio-box:hover h3 {
+    color: var(--main-color);
+    transition-duration: 3s;
+}
+
+  .portfolio-content h1 {
+    text-align: left;
+    padding: 0;
+  }
+
+  .portfolio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .portfolio-container .portfolio-box {
+    position: relative; /* Added */
+    flex: 1 1 30rem;
+    background: transparent;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 4rem;
+    text-align: center;
+}
+
+.portfolio-box i, .portfolio-box h3, .portfolio-box p, .portfolio-box a {
+    position: relative;
+    z-index: 1; /* Ensure content is above the image */
+}
+  
+  .portfolio-box i {
+    font-size: 4rem;
+    color: var(--text-color);
+    z-index: 1;
+  }
+  
+  .portfolio-box h3 {
+    font-family: 'Whisper';
+    font-size: 60px;
+    font-weight: bolder;
+    padding: 0;
+    color: var(--main-color);
+    margin: 5px;
+    z-index: 1;
+  }
+  
+  .portfolio-box p {
+    font-size: 20px;
+    margin: auto;
+    padding-top: 0;
+    padding-bottom: 5px;
+    text-align: center;
+    color: var(--text-color);
+  }
+
+.btn {
+    display: inline-block;
+    background-color: var(--main-color);
+    color: #19191E;
+    padding: 5px 15px;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 4rem;
+    transition: .1s ease;
+}
+
+.btn:hover {
+    color: var(--bg-color);
+    box-shadow: 0px -18px 38px -11px rgba(25, 25, 30, 0.466) inset;
+}
+
+.portfolio-box a {
+    font-weight: bolder;
+    padding: 15px;
+    color: var(--text-color);
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+
+  #skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin: auto;
+    background: var(--second-bg-color);
+    text-align: center;
+  }
+  
+  .skill-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .skills-h1 {
+    background-color: var(--second-bg-color);
+  }
+
+  #skills-h1 {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    clip-path: inset(0 0 0 100%); /* Initially hide the content by clipping it from the left */
+    animation: paintText 5s forwards;
+  }
+
+  #skills p {
+    text-align: left;
+    padding: 0;
+    width: 100%;
+    height: auto;
+  }
+  
+  .skills, img {
+    height: 50px; /* Set a consistent height */
+    width: auto; /* Adjust width as necessary, consider specific widths for consistency */
+    align-self: start;
+    margin: -25px;
+  }
+
+.skill-percentage {
+  font-size: 1.8rem;
+  margin: 8px;
+}
+
+
+  @keyframes brushStroke2 {
+    to { clip-path: inset(0 0 0 0); }
+}
+
+.skills img.animate-on-scroll:not(.in-view) {
+  animation: none;
+}
+
+.skills img.animate-on-scroll.in-view {
+  animation: brushStroke2 3s forwards;
+}
+
+.skill-label {
+    margin-bottom: 5px;
+    font-size: 50px;
+    color: var(--text-color);
+    font-family: 'Whisper';
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-color);
+    padding: 0 20px; /* Ensures there's space on either end of the footer */
+}
+
+.footer-text p {
+    font-size: 20px;
+    text-align: center;
+    white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem; /* Smaller padding */
+    background: var(--main-color);
+    border-radius: 0.5rem; /* Adjusted border-radius */
+    transition: .5s ease;
+}
+
+.footer-iconTop a:hover {
+    color: #19191E;
+    box-shadow: 0px -18px 38px -11px rgba(25, 25, 30, 0.322) inset;
+}
+
+.footer-iconTop a i {
+    font-size: 1.8rem; /* Smaller font size for the icon */
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  /* Adjust paragraph, footer text, and skill labels */
+  p, .footer-text p, .skill-label {
+      font-size: 16px; /* Smaller font size for readability */
+  }
+
+  .skill-label {
+      font-size: 20px; /* Slightly larger font size for skill labels */
+  }
+
+  /* Adjust images in the portfolio and skills sections */
+  .portfolio-box img, .skills img {
+      height: 30px; /* Smaller images for consistency */
+  }
+
+  .footer-iconTop a i {
+      font-size: 1.4rem; /* Smaller footer icons */
+  }
+
+  .portfolio-box, .skill-container {
+      width: 100%; /* Full-width portfolio boxes and skill containers */
+  }
+
+  /* Specific adjustments for the .about-img and .home img */
+  #home img {
+      display:inline-block; /* Ensure it's block level for margin auto to work */
+      margin: auto; /* Center image and provide spacing below */
+      width: 100%;
+      height: 100%;
+  }
+
+  #about img{
+    width: 100%; /* Large and centered above the text */
+    max-width: 900px; /* Limit max width to maintain image quality */
+    display: block; /* Ensure it's block level for margin auto to work */
+    margin: 0 auto; /* Center image and provide spacing below */
+    float:none;
+    padding-bottom: 0%;
+  }
+
+  .about-content {
+    text-align: left;
+    padding-left: 25%;
+    width: 1300px;
+  }
+
+  #home p {
+    text-align: left;
+    padding-left: 5%;
+    width: 700px;
+  }
+
+  h1 {
+      font-size: 80px; /* Adjusted font size for headings */
+  }
+
+  h2 {
+      font-size: 30px; /* Smaller font size for subheadings */
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  #skills {
+      grid-template-columns: 1fr; /* Single column layout for skills */
+      padding: 20px; /* Adjust padding */
+  }
+
+  #home, .about, #portfolio, #skills {
+      padding: 20px; /* Uniform padding */
+  }
+
+  nav ul li {
+      margin: 0 10px; /* Adjust nav item spacing */
+  }
+
+  /* Ensure brushstroke animation covers portfolio-box on hover */
+  .portfolio-box:hover img {
+      width: 100%;
+      height: 100%;
+      clip-path: inset(0 0 0 0); /* Adjust clip-path to cover the box */
+      animation: brushStroke 1s forwards; /* Maintain animation on hover */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust paragraph, footer text, and skill labels */
+  p, .footer-text p, .skill-label {
+      font-size: 16px; /* Smaller font size for readability */
+  }
+
+  .skill-label {
+      font-size: 20px; /* Slightly larger font size for skill labels */
+  }
+
+  /* Adjust images in the portfolio and skills sections */
+  .portfolio-box img, .skills img {
+      height: 30px; /* Smaller images for consistency */
+  }
+
+  .footer-iconTop a i {
+      font-size: 1.4rem; /* Smaller footer icons */
+  }
+
+  .portfolio-box, .skill-container {
+      width: 100%; /* Full-width portfolio boxes and skill containers */
+  }
+
+  /* Specific adjustments for the .about-img and .home img */
+#home img {
+  max-width: 1900px; /* Limit max width to maintain image quality */
+  display: block; /* Ensure it's block level for margin auto to work */
+  margin: auto; /* Center image and provide spacing below */
+  width: 100%;
+  height: 100%;
+  }
+  
+
+  #about img{
+    width: 100%; /* Large and centered above the text */
+    max-width: 900px; /* Limit max width to maintain image quality */
+    display: block; /* Ensure it's block level for margin auto to work */
+    padding-bottom: 0%;
+    padding-top: 0%;
+    margin: 0 auto; /* Center image and provide spacing below */
+    float:none;
+  }
+
+  .about-content {
+    text-align: left;
+    padding-left: 25%;
+    width: 650px;
+  }
+
+  #home p {
+    text-align: left;
+    padding-left: 5%;
+    width: 350px;
+  }
+
+  h1 {
+      font-size: 50px; /* Adjusted font size for headings */
+  }
+
+  h2 {
+      font-size: 30px; /* Smaller font size for subheadings */
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  #skills {
+      grid-template-columns: 1fr; /* Single column layout for skills */
+      padding: 20px; /* Adjust padding */
+  }
+
+  #home, .about, #portfolio, #skills {
+      padding: 20px; /* Uniform padding */
+  }
+
+  nav ul li {
+      margin: 0 10px; /* Adjust nav item spacing */
+  }
+
+  /* Ensure brushstroke animation covers portfolio-box on hover */
+  .portfolio-box:hover img {
+      width: 100%;
+      height: 100%;
+      clip-path: inset(0 0 0 0); /* Adjust clip-path to cover the box */
+      animation: brushStroke 1s forwards; /* Maintain animation on hover */
+  }
+}

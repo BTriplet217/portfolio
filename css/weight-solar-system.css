@@ -1,0 +1,118 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #10162e;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.container {
+  width: min(90%, 43.75em);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  color: #ffffff;
+  z-index: 8;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 2em;
+  font-weight: 600;
+  z-index: 7;
+}
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+}
+input {
+  font-size: 1em;
+  width: 6.25em;
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  z-index: 5;
+}
+
+#earthWeight {
+  z-index: 50;
+  color: #10162e;
+}
+
+button {
+  font-size: 1em;
+  display: block;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 5%;
+  margin: 1em auto 2em auto;
+  border: none;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 4;
+  animation: accretion-disk-glow2 3s infinite alternate;
+}
+
+@keyframes accretion-disk-glow2 {
+  0% { box-shadow: 0 0 25px #f19b4a inset; } 
+  50% { box-shadow: 0 0 25px #c74a00 inset; } 
+  100% { box-shadow: 0 0 25px #c73800 inset; } 
+}
+
+button:hover {
+  animation: accretion-disk-glow 1.5s infinite alternate;
+}
+
+@keyframes accretion-disk-glow {
+  0% { box-shadow: 0 0 25px 21px #f19b4a; } 
+  50% { box-shadow: 0 0 25px 21px #c74a00; } 
+  100% { box-shadow: 0 0 25px 21px #c73800; } 
+}
+
+
+
+
+
+#result {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+  z-index: 3;
+}
+.planet-box {
+  padding: 1em;
+  background-color: #172b5c65;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 0.5em;
+  z-index: 2;
+}
+.planet-box img {
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 0;
+}

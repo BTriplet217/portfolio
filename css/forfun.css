@@ -1,0 +1,30 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.img-card {
+    perspective: 1000px;
+}
+
+.img-card img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.img-card:hover img {
+    transform: scale(1.1) rotateY(20deg);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}

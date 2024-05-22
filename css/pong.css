@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+canvas {
+    border: 1px solid #000;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Customize the appearance of paddles and ball */
+#pongCanvas {
+    background-color: #fff;
+}
+
+/* Customize the appearance of the paddles */
+#pongCanvas rect {
+    background-color: #000;
+}
+
+/* Customize the appearance of the ball */
+#pongCanvas circle {
+    fill: #000;
+}

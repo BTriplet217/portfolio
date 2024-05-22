@@ -1,0 +1,254 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header #branding {
+    float: left;
+}
+
+header #branding h1 {
+    margin: 0;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header .highlight, header .current a {
+    color: #e8491d;
+    font-weight: bold;
+}
+
+header a:hover {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Modules Section */
+.module {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.module h2, .module h3 {
+    color: #35424a;
+}
+
+.module p {
+    font-size: 1em;
+}
+
+/* Feedback System */
+.feedback {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-left: 4px solid #e8491d;
+}
+
+/* Engagement Dashboard */
+.dashboard {
+    background-color: #eaeaea;
+    padding: 10px;
+    border-left: 4px solid #35424a;
+}
+
+/* Forms and Buttons */
+form {
+    padding: 10px;
+    background: #f4f4f4;
+    border-radius: 5px;
+}
+
+input[type="text"], input[type="email"], input[type="date"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #35424a;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #e8491d;
+}
+
+/* Utility Classes */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Media Queries */
+@media(max-width: 700px) {
+    header #branding, header nav, header nav li, .container {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+
+    header nav li {
+        padding-bottom: 10px;
+    }
+}
+
+
+#reporting button {
+    align-content: center;
+}
+
+section {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="date"] {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: rgb(59 130 246);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:rgb(37 99 235);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.moodButton {
+    font-size: 1.5em;
+    margin: 5px;
+}
+
+.feedback-container, .reporting-module {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.feedback-form,
+.feedback-received,
+.feedback-analysis {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-form h2,
+.feedback-received h2,
+.feedback-analysis h2 {
+    color: #333;
+}
+
+#feedbackText {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#submitFeedback button {
+    background-color: rgb(59 130 246);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#submitFeedback button:hover {
+    background-color: rgb(37 99 235);
+}
+
+#feedbackList {
+    list-style: none;
+    padding: 0;
+}

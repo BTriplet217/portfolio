@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpTrack</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="css/emptrack.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-500 p-6">
+        <h1 class="text-white text-3xl">EmpTrack | Employee Performance and Engagement Tracker</h1>
+    </header>
+    <nav class="bg-white shadow-md">
+        <ul class="flex justify-around p-4">
+            <li><a href="#dashboard" class="text-blue-500 hover:text-blue-700">Dashboard</a></li>
+            <li><a href="#performance" class="text-blue-500 hover:text-blue-700">Performance Tracking</a></li>
+            <li><a href="#engagement" class="text-blue-500 hover:text-blue-700">Engagement Measurement</a></li>
+            <li><a href="#feedback" class="text-blue-500 hover:text-blue-700">Feedback System</a></li>
+            <li><a href="#reporting" class="text-blue-500 hover:text-blue-700">Reporting & Analytics</a></li>
+        </ul>
+    </nav>
+    <main class="p-8">
+        <!-- Content goes here -->
+       <!-- Dashboard Main Section -->
+    <section class="container mx-auto p-6" id="dashboard">
+        <!-- Overview Widgets -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Performance Summary Widget -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h2 class="font-bold text-xl mb-2">Performance Summary</h2>
+                <!-- Content will be dynamically loaded via JS -->
+            </div>
+
+            <!-- Engagement Indicators Widget -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h2 class="font-bold text-xl mb-2">Engagement Indicators</h2>
+                <!-- Content will be dynamically loaded via JS -->
+            </div>
+
+            <!-- Feedback Highlights Widget -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h2 class="font-bold text-xl mb-2">Feedback Highlights</h2>
+                <!-- Content will be dynamically loaded via JS -->
+            </div>
+        </div>
+
+        <!-- Interactive Charts and Graphs Section -->
+        <div class="mt-6">
+            <h2 class="font-bold text-2xl mb-3">Charts and Graphs</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <canvas id="myChart"></canvas>
+                <!-- Trend Lines Graph --><br>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold text-xl mb-2">Trend Lines</h3>
+                    <!-- Graph will be implemented via JS -->
+                </div>
+
+                <!-- Comparison Charts -->
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold text-xl mb-2">Comparison Charts</h3>
+                    <!-- Graph will be implemented via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Goal Tracking Section -->
+        <div class="mt-6">
+            <h2 class="font-bold text-2xl mb-3">Goal Tracking</h2>
+            <!-- Personal and Team Goals Widgets -->
+            <!-- ... -->
+        </div>
+    </section> 
+
+    <!-- Performance Tracking Module -->
+    <section class="container mx-auto p-6" id="performance">
+        <!-- Goal Setting and Monitoring -->
+        <section id="goalSetting">
+            <h2 class="font-bold text-2xl mb-3">Goal Setting and Monitoring</h2>
+            <form id="goalForm">
+                <input type="text" id="goalInput" placeholder="Enter your goal">
+                <input type="date" id="deadlineInput">
+                <button type="submit">Add Goal</button>
+            </form>
+            <ul id="goalList"></ul>
+        </section>
+
+        <!-- Performance Reviews -->
+        <section id="performanceReviews">
+            <h2 class="font-bold text-2xl mb-3">Performance Reviews</h2>
+            <button id="scheduleReview">Schedule Review</button>
+            <div id="reviewsList"></div>
+        </section>
+
+        <!-- Skills and Competencies Tracking -->
+        <section id="skillsTracking">
+            <h2 class="font-bold text-2xl mb-3">Skills and Competencies</h2>
+            <form id="skillsForm">
+                <input type="text" id="skillInput" placeholder="Enter a skill">
+                <button type="submit">Add Skill</button>
+            </form>
+            <ul id="skillsList"></ul>
+        </section>
+
+        <!-- Real-Time Feedback Integration -->
+        <section id="realTimeFeedback">
+            <h2 class="font-bold text-2xl mb-3">Real-Time Feedback</h2>
+            <div id="feedbackMessages"></div>
+        </section>
+    </div>
+
+    <!-- Engagement Measurement Module -->
+    <section class="container mx-auto p-6" id="engagement">
+        <!-- Surveys and Polls -->
+        <section id="surveysPolls">
+            <h2 class="font-bold text-2xl mb-3">Surveys and Polls</h2>
+            <button id="createSurvey">Create Survey</button>
+            <div id="surveyList"></div>
+        </section>
+
+        <!-- Mood Tracker -->
+        <section id="moodTracker">
+            <h2 class="font-bold text-2xl mb-3">Mood Tracker</h2>
+            <button class="moodButton" data-mood="Happy">😊 Happy</button>
+            <button class="moodButton" data-mood="Neutral">😐 Neutral</button>
+            <button class="moodButton" data-mood="Mad">😠 Angry</button>
+            <button class="moodButton" data-mood="Sad">😔 Sad</button>
+        </section>
+
+        <!-- Participation Metrics -->
+        <section id="participationMetrics">
+            <h2 class="font-bold text-2xl mb-3">Participation Metrics</h2>
+            <div id="participationData"></div>
+        </section>
+
+        <!-- Engagement Dashboard -->
+        <section id="engagementDashboard">
+            <h2 class="font-bold text-2xl mb-3">Engagement Dashboard</h2>
+            <canvas id="engagementChart"></canvas>
+        </section>
+    </div>
+
+    <!-- Feedback System Module -->
+    <div class="feedback-container">
+        <section class="container mx-auto p-6" id="feedback">
+        <div class="feedback-form">
+            <h2 class="font-bold text-2xl mb-3">Submit Feedback</h2>
+            <form id="submitFeedback">
+                <textarea id="feedbackText" placeholder="Your feedback here" required></textarea>
+                <input type="checkbox" id="anonymous" name="anonymous">
+                <label for="anonymous">Submit Anonymously</label>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+        <div class="feedback-received">
+            <h2 class="font-bold text-2xl mb-3">Received Feedback</h2>
+            <ul id="feedbackList"></ul>
+        </div>
+        <div class="feedback-analysis">
+            <h2 class="font-bold text-2xl mb-3">Feedback Analysis</h2>
+            <!-- Placeholder for feedback analysis tools -->
+        </div>
+    </section>
+    </div>
+
+    <!-- Reporting & Analytics Module -->
+    <section class="container mx-auto p-6" id="reporting">
+        <h2 class="font-bold text-2xl mb-3">Reporting & Analytics</h2>
+    <div class="reporting-module">
+        <div class="report-customization">
+            <!-- Options to customize report -->
+        </div>
+        <div class="visualization-area">
+            <!-- Placeholder for charts and graphs -->
+        </div>
+        <div class="trend-analysis">
+            <!-- Display trends over time -->
+        </div>
+        <div class="export-options">
+            <button id="export-pdf">Export as PDF</button>
+            <button id="export-excel">Export as Excel</button>
+        </div>
+        <div class="predictive-analytics">
+            <!-- Predictive analytics insights -->
+        </div>
+    </div>
+    </section>
+
+    </main>
+    <footer class="bg-gray-200 text-center p-4">
+        <p>&copy; 2024 Blaine Triplet. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/emptrack.js"></script>
+    <script>
+        // Check for Local Storage availability
+        function storageAvailable(type) {
+            var storage;
+            try {
+                storage = window[type];
+                var x = '__storage_test__';
+                storage.setItem(x, x);
+                storage.removeItem(x);
+                return true;
+            } catch (e) {
+                return e instanceof DOMException && (
+                    // Firefox
+                    e.code === 22 ||
+                    // Chrome / Safari
+                    e.code === 1014 ||
+                    // Also test name field
+                    e.name === 'QuotaExceededError' ||
+                    e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+                    // acknowledge localStorage length
+                    storage.length !== 0;
+            }
+        }
+        
+        // Data Management
+        class EmpTrackApp {
+            constructor() {
+                this.goals = [];
+                this.skills = [];
+                this.feedback = [];
+                // Load existing data from local storage
+                this.loadData();
+            }
+        
+            loadData() {
+                if (storageAvailable('localStorage')) {
+                    // Load goals, skills, feedback, etc.
+                    this.goals = JSON.parse(localStorage.getItem('goals')) || [];
+                    this.skills = JSON.parse(localStorage.getItem('skills')) || [];
+                    this.feedback = JSON.parse(localStorage.getItem('feedback')) || [];
+                    // Additional data loading as needed
+                } else {
+                    // Notify user that data persistence is not available
+                    alert("Local storage is not supported by your browser. Some features may not work as expected.");
+                }
+            }
+        
+            saveData() {
+                if (storageAvailable('localStorage')) {
+                    localStorage.setItem('goals', JSON.stringify(this.goals));
+                    localStorage.setItem('skills', JSON.stringify(this.skills));
+                    localStorage.setItem('feedback', JSON.stringify(this.feedback));
+                    // Additional data saving as needed
+                }
+            }
+        
+            // Add more methods for managing goals, skills, feedback, etc.
+        }
+        
+        // Instantiate the app
+        const empTrackApp = new EmpTrackApp();
+        
+        // Event listeners for form submissions, button clicks, etc.
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize dynamic content and charts
+            // Example: initializeCharts();
+            // Attach event handlers for forms, buttons, etc.
+        });
+        </script>
+        
+</body>
+</html>

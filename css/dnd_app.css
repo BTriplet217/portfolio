@@ -1,0 +1,455 @@
+:root {
+    --primary-color: #582d30d3;
+    --background-light: #fff;
+    --background-dark: #343a40;
+    --text-color-light: #FFEFF4;
+    --text-color-dark: #343a40;
+    --link-color: #BBBCAC;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-color-dark);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    padding: 10px 20px;
+    text-align: center;
+}
+
+h1, #subtitle {color: #FFEFF4; text-shadow: #D32430 0 0 10px;}
+
+
+
+
+
+/*Character Sheet*/
+.charsheet {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333333;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.charsheet #head, 
+.charsheet #sheetmain {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.charsheet label {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.charsheet input[type="text"], 
+.charsheet input[type="number"],
+.charsheet textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 2px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding doesn't increase the width */
+}
+
+.charsheet .charname, 
+.charsheet .misc, 
+.charsheet .attributes,
+.charsheet .combat, 
+.charsheet .flavor,
+.charsheet .features {
+    flex-basis: 48%; /* Adjust this percentage based on your layout preference */
+    margin-bottom: 5px;
+}
+
+.charsheet ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.charsheet .scores ul,
+.charsheet .saves ul,
+.charsheet .skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.charsheet .scores ul li,
+.charsheet .saves ul li,
+.charsheet .skills ul li {
+    flex-basis: 45%; /* Adjust based on layout preference */
+}
+
+.charsheet .modifier, 
+.charsheet .attr-applications, 
+.charsheet .passive-perception,
+.charsheet .otherprofs,
+.charsheet .equipment,
+.charsheet .attacksandspellcasting,
+.charsheet .money {
+    flex-basis: 100%;
+}
+
+.charsheet textarea {
+    height: 80px;
+}
+
+.charsheet table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.charsheet table th, 
+.charsheet table td {
+    border: 1px solid #cccccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.charsheet .label-container label {
+    font-size: 0.9em;
+    font-style: italic;
+}
+/*Character Sheet End*/
+
+/*Dice */
+.dice-roller {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 400px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.dice {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.dice label {
+    flex-basis: 40%; /* Adjust label width */
+    margin-right: 5px;
+}
+
+.dice input[type="number"] {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.dice button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    cursor: pointer;
+}
+
+#dice-results {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9e9e9; /* Slightly different background for contrast */
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+/*Dice End*/
+
+.btn-group .button {
+    background-color: transparent;
+    color: var(--text-color-light);
+    transition: background-color 0.3s;
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .btn-group .button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+  .btn-group .button:hover {
+    background-color: #D32430;
+    color: var(--text-color-light);
+    border-radius: 20px;
+  }
+
+#side-nav {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    width: 175px; /* Adjust as needed */
+    height: 280px;
+    background-color: #582d30d3;
+    border-right: 1px solid #1d1d1d;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    transition: transform 0.3s ease-out;
+}
+
+#side-nav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 10%;
+  font-size: 25px;
+  color: white;
+}
+
+#side-nav nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#side-nav nav ul li a {
+    display: block;
+    padding: 10px;
+    color: var(--text-color-light);
+    text-align: left;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#side-nav nav ul li a:hover {
+    background-color: #D32430;
+    color:  var(--background-dark);
+}
+
+.closebtn:hover {
+    color:   #D32430;
+}
+
+#nav-toggle {
+    position: absolute;
+    top: 10px;
+    right: -40px; /* Adjust based on the width of the button */
+    width: 40px; /* Width of the toggle button */
+    height: 40px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+
+
+
+#auth-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#login-section, #signup-section {
+    display: inline-block; /* Align the forms vertically */
+    width: 100%;
+    margin-bottom: 20px; /* Space between login and sign-up forms */
+}
+
+#login-form, #signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#login-form input[type="text"],
+#signup-form input[type="text"],
+#login-form input[type="password"],
+#signup-form input[type="password"],
+#signup-form input[type="email"] {
+    padding: 5px;
+    margin: 5px 0; /* Vertical margin for spacing */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 15%; /* Set width for text areas */
+}
+
+#login-form button,
+#signup-form button {
+    margin-top: 10px;
+    border-radius: 2px;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    transition: background-color 0.3s;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer; /* Default cursor style */
+}
+
+#login-form button:hover,
+#signup-form button:hover {
+    background-color: #D32430;
+    color: var(--text-color-d);
+    cursor: pointer; /* Cursor changes to pointer on hover */
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu ul li {
+    margin: 0 10px;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+
+/* Character Sheet Styles */
+#character-sheet-section {
+    width: 97%; /* 1/4th of the screen size */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    text-align: center; /* Center the title */
+    overflow-x: hidden;
+}
+
+#character-sheet-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#character-sheet-form label {
+    margin-right: 10px;
+}
+
+#character-sheet-form input,
+#character-sheet-form select {
+    padding: 5px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
+
+/* Button Styles */
+button {
+    margin-top: 10px;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    transition: background-color 0.3s;
+    font-size: 24px;
+    border-radius: 8px;
+    cursor: pointer; /* Default cursor style */
+}
+
+button:hover, #theme-toggle:hover {
+    background-color: #D32430;
+    color: var(--text-color-light);
+    cursor: pointer; /* Cursor changes to pointer on hover */
+}
+
+#theme-toggle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+#back-to-top {
+    position: fixed; /* Fixed positioning relative to the viewport */
+    bottom: 20px; /* 20px from the bottom */
+    right: 20px; /* 20px from the right */
+    padding: 10px 15px;
+    background-color: #582d307a;
+    color: var(--text-color-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Show the button when scrolled down */
+body.scrolled #back-to-top {
+    display: block;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+.dark-mode {
+    --background-light: #1c1f22;
+    --background-dark: #fff;
+    --text-color-light: #FFEFF4;
+    --text-color-dark: #343a40;
+    --link-color: #BBBCAC;
+    h1, #subtitle {color: #FFEFF4; text-shadow: #D32430 0 0 10px;}
+    nav ul {background-color: transparent;}
+    #character-sheet-section {color: var(--text-color-light);}
+    .dropdown-content{background-color: #FFEFF4;
+        color: #BBBCAC;}
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #character-sheet-form {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-menu ul {
+        display: none; /* Hide the menu initially */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu ul li {
+        margin: 10px 0;
+    }
+
+}
+
