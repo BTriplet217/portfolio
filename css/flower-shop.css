@@ -148,6 +148,7 @@ body {
 .home .content h3 {
     font-size: 6rem;
     color: var(--main-color);
+    text-align: left;
 }
 
 .home .content span {
@@ -155,6 +156,7 @@ body {
     color: var(--second-bg-color);
     padding: 1rem 0;
     line-height: 1.5;
+    text-align: left;
 }
 
 .home .content p {
@@ -162,6 +164,7 @@ body {
     color: var(--text-color);
     padding: 1rem 0;
     line-height: 1.5;
+    text-align: left;
 }
 
 .about .row .content {
@@ -476,11 +479,11 @@ body {
     }
 
     header {
-        padding: 2rem;
+        padding: 1rem;
     }
 
     section {
-        padding: 2rem;
+        padding: 1rem;
     }
 
     .home {
@@ -522,7 +525,7 @@ body {
 
     header .navbar a {
         margin: 1.5rem;
-        padding: 1.5rem;
+        padding: 1rem;
         background: var(--bg-color);
         border: .1rem solid rgba(0, 0, 0, .1);
         display: block;
@@ -540,15 +543,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 4rem;
+        font-size: 4.5rem;
     }
 
     .home .content span {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .home .content p {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 }
 
