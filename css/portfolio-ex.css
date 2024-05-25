@@ -451,8 +451,15 @@ h2 {
       margin: 0 auto;
   }
 
-  #home h1, #home h2 {
+  #home h1 {
       font-size: 90px;
+      text-align: center;
+      width: 95%;
+      margin: 0 auto;
+  }
+
+  #home h2 {
+      font-size: 70px;
       text-align: center;
       width: 95%;
       margin: 0 auto;
@@ -468,9 +475,9 @@ h2 {
   }
 
   #about h1, #portfolio h1, #skills h1 {
-    font-size: 70px;
+      font-size: 85%;
       text-align: center;
-      width: 95%;
+      width: 85%;
       margin: 0 auto;
   }
 
@@ -526,26 +533,36 @@ h2 {
   }
 
   #home img {
-      width: 95%;
+      width: 100%;
+      height: auto;
   }
 
   #home h1 {
-      font-size: 50px;
-  }
-
-  #home h2 {
-      font-size: 30px;
-  }
-
-  #about h1, #portfolio h1, #skills h1 {
-    font-size: 40px;
+      font-size: 60px;
       text-align: center;
       width: 95%;
       margin: 0 auto;
   }
 
+  #home h2 {
+      font-size: 50px;
+      text-align: center;
+      width: 95%;
+      margin: 0 auto;
+  }
+
+  #about h1, #portfolio h1, #skills h1 {
+      font-size: 80%;
+      text-align: center;
+      width: 85%;
+      margin: 0 auto;
+  }
+
   #about img {
       width: 70%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
   }
 
   .about-content {
@@ -558,6 +575,7 @@ h2 {
 
   .portfolio-box img, .skills img {
       width: 70%;
+      height: auto;
   }
 
   #skills {
