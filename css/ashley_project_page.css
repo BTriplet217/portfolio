@@ -124,9 +124,8 @@ nav ul li a:hover, .nav ul li a.active {
     }
 .image-description {
     font-size: 9px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    overflow: scroll;
+    overflow-wrap: anywhere;
+    overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }
     .footer {
