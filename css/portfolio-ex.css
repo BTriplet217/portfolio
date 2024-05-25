@@ -570,12 +570,12 @@ h2 {
       width: 95%;
   }
 
-  .portfolio-box, .skill-container {
+  .portfolio-box,{
       width: 95%;
   }
 
   .portfolio-box img, .skills img {
-      width: 70%;
+      width: 95%;
       height: auto;
   }
 
@@ -583,7 +583,7 @@ h2 {
       grid-template-columns: 1fr;
   }
 
-  #skill-container {
+  .skill-container {
     width: 60%;
   }
 
