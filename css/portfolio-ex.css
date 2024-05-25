@@ -519,7 +519,7 @@ h2 {
   }
 
   .skill-container {
-    width: 50%;
+    width: 70%;
   }
 
   /* Footer adjustments */
@@ -576,7 +576,7 @@ h2 {
       width: 95%;
   }
 
-  .portfolio-box,{
+  .portfolio-box{
       width: 95%;
   }
 
@@ -588,7 +588,7 @@ h2 {
   .portfolio-box h3 {
     font-size: 50px;
       text-align: center;
-      width: 70%;
+      width: 75%;
   }
 
   #skills {
@@ -596,7 +596,7 @@ h2 {
   }
 
   .skill-container {
-    width: 60%;
+    width: 80%;
   }
 
   .footer-text p {
