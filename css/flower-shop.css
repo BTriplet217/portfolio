@@ -474,9 +474,21 @@ body {
 
 /* --Media stuff-- */
 
+/* --Media stuff-- */
+
 @media (max-width: 991px) {
     html {
         font-size: 65%;
+    }
+
+    .navbar, .icons {
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar a {
+        font-size: 1.5rem;
     }
 
     .home {
@@ -486,21 +498,24 @@ body {
     }
 
     .home .content {
-        padding-left: 10%;
-        border-radius: 0%;
-        margin: 0%;
+        align-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .home .content h3 {
         font-size: 9rem;
+        text-align: center;
     }
 
     .home .content span {
         font-size: 5.5rem;
+        text-align: center;
     }
 
     .home .content p {
         font-size: 3.5rem;
+        text-align: center;
     }
 
     .contact .row {
@@ -531,6 +546,7 @@ body {
         background: #b151ff3d;
         border-top: .1rem solid rgba(0, 0, 0, .1);
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        text-align: center;
     }
 
     header #toggler:checked ~ .navbar {
@@ -538,13 +554,23 @@ body {
     }
 
     header .navbar a {
-        margin: 1.5rem;
+        margin: 1rem;
         padding: 0;
         background: var(--bg-color);
         border: .1rem solid rgba(0, 0, 0, .1);
         display: block;
         text-align: center;
         font-size: 2rem;
+    }
+
+    header .icons {
+        display: flex;
+        justify-content: center;
+    }
+
+    .icons a {
+        font-size: 2rem;
+        margin: 0 1rem;
     }
 
     .icons-container {
@@ -556,24 +582,29 @@ body {
         background: url(../images/flower-shop/flower.jpg) no-repeat;
         background-size: cover;
         background-position: center;
+        align-content: center;
     }
 
     .home .content {
         padding-left: 10%;
         border-radius: 0%;
         margin: 0%;
+        text-align: center;
     }
 
     .home .content h3 {
         font-size: 7.5rem;
+        text-align: center;
     }
 
     .home .content span {
         font-size: 5rem;
+        text-align: center;
     }
 
     .home .content p {
         font-size: 4rem;
+        text-align: center;
     }
 
     .contact .row {
@@ -590,6 +621,21 @@ body {
         font-size: 60%;
     }
 
+    .navbar, .icons {
+        font-size: 1.8rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar a {
+        font-size: 1.2rem;
+    }
+
+    .icons a {
+        font-size: 1.2rem;
+        margin: 0 .5rem;
+    }
+
     .home {
         display: block;
         text-align: center;
@@ -603,18 +649,22 @@ body {
         padding-left: 10%;
         border-radius: 0%;
         margin: 0%;
+        text-align: center;
     }
 
     .home .content h3 {
         font-size: 8.5rem;
+        text-align: center;
     }
 
     .home .content span {
         font-size: 5.5rem;
+        text-align: center;
     }
 
     .home .content p {
         font-size: 3.5rem;
+        text-align: center;
     }
 
     .contact .row {
