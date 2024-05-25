@@ -446,6 +446,7 @@ h2 {
   /* Adjust paragraph, footer text, and skill labels */
   p, .footer-text p, .skill-label {
       font-size: 16px; /* Smaller font size for readability */
+      width: 75%;
   }
 
   .skill-label {
@@ -491,7 +492,7 @@ h2 {
   #home p {
     text-align: left;
     padding-left: 5%;
-    width: 700px;
+    width: 75%;
   }
 
   h1 {
@@ -533,6 +534,7 @@ h2 {
     #home p,
     #about p {
         font-size: 16px;
+        width: 75%;
     }
 
     /* Adjusting image size on the home section */
