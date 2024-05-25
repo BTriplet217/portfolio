@@ -16,12 +16,12 @@ canvas {
     margin: 20px auto;
     width: 100%;
     height: auto;
-    max-width: 100%;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    max-width: 800px;
+    max-height: 50vh; /* Adjust the maximum height to half the viewport height */
+    box-sizing: border-box;
     background-color: #fff;
 }
 
-/* Ensure canvas is responsive */
 @media (max-width: 600px) {
     canvas {
         width: 100%;
