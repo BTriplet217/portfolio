@@ -11,7 +11,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/*Header and Nav */  
+/*Header and Nav */
 header {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -23,36 +23,7 @@ header {
     z-index: 1000; /* Ensure navbar is above other content */
 }
 
-
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    justify-content: center;
-}
-
-.gallery-item {
-    background-color: var(--second-bg-color);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.gallery-item img {
-    width: 650px; /* Make images large and responsive */
-    height: auto;
-    display: block;
-}
-
-.image-description {
-    padding: 10px;
-    color: var(--text-color);
-    text-align: center;
-    width: 650px;
-}
-
-
-  nav ul {
+nav ul {
     list-style-type: none;
     padding: 0;
 }
@@ -67,12 +38,44 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav ul li a:hover, .nav  ul li a.active {
+nav ul li a:hover, .nav ul li a.active {
     color: var(--main-color);
     transition: .2s;
     text-decoration: none;
 }
 
+/* Gallery */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    background-color: var(--second-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 95%;
+    max-width: 650px;
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-description {
+    padding: 10px;
+    color: var(--text-color);
+    text-align: center;
+    width: 100%;
+}
+
+/* Footer */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -108,7 +111,22 @@ nav ul li a:hover, .nav  ul li a.active {
 }
 
 @media screen and (max-width: 600px) {
-    .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    nav ul li {
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-text p {
+        font-size: 16px;
+    }
+
+    .footer-iconTop a i {
+        font-size: 1.5rem;
     }
 }
