@@ -445,7 +445,7 @@ h2 {
 
   /* Home section adjustments */
   #home img {
-      width: 95%;
+      width: 80%;
       height: auto;
       display: block;
       margin: 0 auto;
@@ -454,14 +454,14 @@ h2 {
   #home h1 {
       font-size: 90px;
       text-align: center;
-      width: 95%;
+      width: 85%;
       margin: 0 auto;
   }
 
   #home h2 {
       font-size: 70px;
       text-align: center;
-      width: 95%;
+      width: 85%;
       margin: 0 auto;
   }
 
@@ -474,10 +474,11 @@ h2 {
       text-align: center;
   }
 
+  /* About, Portfolio, Skills section adjustments */
   #about h1, #portfolio h1, #skills h1 {
-      font-size: 85%;
+      font-size: 70px;
       text-align: center;
-      width: 85%;
+      width: 75%;
       margin: 0 auto;
   }
 
@@ -533,28 +534,28 @@ h2 {
   }
 
   #home img {
-      width: 100%;
+      width: 80%;
       height: auto;
   }
 
   #home h1 {
       font-size: 60px;
       text-align: center;
-      width: 95%;
+      width: 85%;
       margin: 0 auto;
   }
 
   #home h2 {
       font-size: 50px;
       text-align: center;
-      width: 95%;
+      width: 85%;
       margin: 0 auto;
   }
 
   #about h1, #portfolio h1, #skills h1 {
-      font-size: 80%;
+      font-size: 60px;
       text-align: center;
-      width: 85%;
+      width: 75%;
       margin: 0 auto;
   }
 
@@ -590,3 +591,4 @@ h2 {
       font-size: 1.2rem;
   }
 }
+
