@@ -30,9 +30,9 @@ var Ai = {
     new: function (side) {
         return {
             width: 18,
-            height: 190,
-            x: side === 'left' ? 150 : this.canvas.width - 150,
-            y: (this.canvas.height / 2) - 35,
+            height: 95, // Adjust paddle height for the new canvas size
+            x: side === 'left' ? 30 : this.canvas.width - 48, // Adjust paddle position to be at the edges
+            y: (this.canvas.height / 2) - 47.5, // Center paddle vertically
             score: 0,
             move: DIRECTION.IDLE,
             speed: 10
@@ -63,7 +63,7 @@ var Game = {
 
     resizeCanvas: function () {
         this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
+        this.canvas.height = window.innerHeight / 2; // Set canvas height to half the window height
     },
 
     endGameMenu: function (text) {
@@ -138,7 +138,7 @@ var Game = {
             if (Pong._turnDelayIsOver.call(this) && this.turn) {
                 this.ball.moveX = this.turn === this.player ? DIRECTION.LEFT : DIRECTION.RIGHT;
                 this.ball.moveY = [DIRECTION.UP, DIRECTION.DOWN][Math.round(Math.random())];
-                this.ball.y = Math.floor(Math.random() * this.canvas.height - 200) + 200;
+                this.ball.y = Math.floor(Math.random() * (this.canvas.height - 200)) + 100;
                 this.turn = null;
             }
 
