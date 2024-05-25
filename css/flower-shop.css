@@ -474,9 +474,11 @@ body {
 
 /* --Media stuff-- */
 
+/* --Media stuff-- */
+
 @media (max-width: 991px) {
     html {
-        font-size: 55%;
+        font-size: 65%;
     }
 
     header {
@@ -492,15 +494,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 5rem;
+        font-size: 6rem;
     }
 
     .home .content span {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
     .home .content p {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .contact .row {
@@ -552,15 +554,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 4.5rem;
+        font-size: 5.5rem;
     }
 
     .home .content span {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
     .home .content p {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .contact .row {
@@ -574,7 +576,7 @@ body {
 
 @media (max-width: 450px) {
     html {
-        font-size: 50%;
+        font-size: 60%;
     }
 
     .home {
@@ -590,15 +592,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 5rem;
+        font-size: 6.5rem;
     }
 
     .home .content span {
-        font-size: 2rem;
+        font-size: 4.5rem;
     }
 
     .home .content p {
-        font-size: 1.2rem;
+        font-size: 2.5rem;
     }
 
     .contact .row {
