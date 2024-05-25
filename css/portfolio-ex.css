@@ -445,14 +445,14 @@ h2 {
 
   /* Home section adjustments */
   #home img {
-      width: 80%;
+      width: 95%;
       height: auto;
       display: block;
       margin: 0 auto;
   }
 
   #home h1, #home h2 {
-      font-size: 60px;
+      font-size: 70px;
       text-align: center;
       width: 95%;
       margin: 0 auto;
@@ -519,7 +519,7 @@ h2 {
   }
 
   #home img {
-      width: 70%;
+      width: 95%;
   }
 
   #home h1 {
