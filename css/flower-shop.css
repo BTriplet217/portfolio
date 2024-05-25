@@ -478,7 +478,7 @@ body {
 
 @media (max-width: 991px) {
     html {
-        font-size: 75%;
+        font-size: 65%;
     }
 
     header {
@@ -490,7 +490,9 @@ body {
     }
 
     .home {
-        background: none;
+        background: url(../images/flower-shop/flower.png) no-repeat;
+        background-size: 100% auto;
+        background-position: center;
     }
 
     .home .content h3 {
@@ -550,19 +552,21 @@ body {
     }
 
     .home {
-        background: none;
+        background: url(../images/flower-shop/flower.png) no-repeat;
+        background-size: 100% auto;
+        background-position: center;
     }
 
     .home .content h3 {
-        font-size: 6.5rem;
+        font-size: 5.5rem;
     }
 
     .home .content span {
-        font-size: 5rem;
+        font-size: 4rem;
     }
 
     .home .content p {
-        font-size: 5.5rem;
+        font-size: 2.5rem;
     }
 
     .contact .row {
@@ -576,13 +580,15 @@ body {
 
 @media (max-width: 450px) {
     html {
-        font-size: 75%;
+        font-size: 60%;
     }
 
     .home {
         display: block;
         text-align: center;
-        background: none;
+        background: url(../images/flower-shop/flower.png) no-repeat;
+        background-size: 100% auto;
+        background-position: center;
         padding: 0;
     }
 
@@ -596,11 +602,11 @@ body {
     }
 
     .home .content span {
-        font-size: 5.5rem;
+        font-size: 4.5rem;
     }
 
     .home .content p {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
     }
 
     .contact .row {
