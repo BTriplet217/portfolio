@@ -75,7 +75,7 @@ nav ul li a:hover, .nav ul li a.active {
     width: 100%;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    overflow: scroll; 
+    overflow: hidden; 
     text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }
 
@@ -123,7 +123,7 @@ nav ul li a:hover, .nav ul li a.active {
         margin: 10px 0;
     }
 .image-description {
-    font-size: 10px;
+    font-size: 9px;
     word-wrap: break-word;
     overflow-wrap: break-word;
     overflow: scroll;
