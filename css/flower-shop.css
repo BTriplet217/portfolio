@@ -478,7 +478,7 @@ body {
 
 @media (max-width: 991px) {
     html {
-        font-size: 65%;
+        font-size: 75%;
     }
 
     header {
@@ -554,15 +554,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 5.5rem;
+        font-size: 6.5rem;
     }
 
     .home .content span {
-        font-size: 4rem;
+        font-size: 5rem;
     }
 
     .home .content p {
-        font-size: 2.5rem;
+        font-size: 5.5rem;
     }
 
     .contact .row {
@@ -576,7 +576,7 @@ body {
 
 @media (max-width: 450px) {
     html {
-        font-size: 60%;
+        font-size: 75%;
     }
 
     .home {
@@ -596,11 +596,11 @@ body {
     }
 
     .home .content span {
-        font-size: 4.5rem;
+        font-size: 5.5rem;
     }
 
     .home .content p {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
     .contact .row {
