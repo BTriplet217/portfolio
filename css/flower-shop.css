@@ -132,7 +132,7 @@ body {
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background: url(../images/flower-shop/flower.png) no-repeat;
+    background: url(../images/flower-shop/flower.jpg) no-repeat;
     background-size: 100% auto;
     background-position: center;
     width: 100vw;
@@ -480,7 +480,7 @@ body {
     }
 
     .home {
-        background: url(../images/flower-shop/flower.png) no-repeat;
+        background: url(../images/flower-shop/flower.jpg) no-repeat;
         background-size: cover;
         background-position: center;
     }
@@ -553,7 +553,7 @@ body {
     }
 
     .home {
-        background: url(../images/flower-shop/flower.png) no-repeat;
+        background: url(../images/flower-shop/flower.jpg) no-repeat;
         background-size: cover;
         background-position: center;
     }
@@ -593,7 +593,7 @@ body {
     .home {
         display: block;
         text-align: center;
-        background: url(../images/flower-shop/flower.png) no-repeat;
+        background: url(../images/flower-shop/flower.jpg) no-repeat;
         background-size: cover;
         background-position: center;
     }
