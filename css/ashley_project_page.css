@@ -91,7 +91,7 @@ nav ul li a:hover, .nav ul li a.active {
 .footer-text p {
     font-size: 20px;
     text-align: center;
-    white-space: nowrap; /* Prevents the text from wrapping */
+    white-space: wrap; /* Prevents the text from wrapping */
     overflow: hidden; /* Prevents text overflow */
     text-overflow: ellipsis; /* Adds ellipsis (...) to overflowing text */
 }
