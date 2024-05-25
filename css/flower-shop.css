@@ -143,12 +143,13 @@ body {
 .home .content {
     max-width: 50rem;
     margin: auto;
+    text-align: center; /* Center the text */
 }
 
 .home .content h3 {
     font-size: 6rem;
     color: var(--main-color);
-    text-align: left;
+    text-align: center; /* Center the heading */
 }
 
 .home .content span {
@@ -156,7 +157,7 @@ body {
     color: var(--second-bg-color);
     padding: 1rem 0;
     line-height: 1.5;
-    text-align: left;
+    text-align: center; /* Center the span */
 }
 
 .home .content p {
@@ -164,7 +165,7 @@ body {
     color: var(--text-color);
     padding: 1rem 0;
     line-height: 1.5;
-    text-align: left;
+    text-align: center; /* Center the paragraph */
 }
 
 .about .row .content {
@@ -182,7 +183,7 @@ body {
 
 .about .row .content p {
     font-size: 1.1rem;
-    color: var(--text-color);
+    color: var (--text-color);
     padding: .5rem 0;
     padding-top: 1rem;
     line-height: 1.5;
@@ -319,7 +320,7 @@ body {
 
 .products .box-container .box .content .price span {
     font-size: 1.2rem;
-    color: var(--second-bg-color);
+    color: var (--second-bg-color);
     font-weight: lighter;
     text-decoration: line-through;
 }
@@ -385,7 +386,7 @@ body {
 
 .contact .row {
     display: flex;
-    flex-wrap: wrap-reverse;
+    flex-wrap: nowrap;
     gap: 1.5rem;
     align-items: center;
 }
@@ -501,6 +502,14 @@ body {
     .home .content p {
         font-size: 1.5rem;
     }
+
+    .contact .row {
+        flex-wrap: nowrap;
+    }
+
+    .contact .row form, .contact .row .image {
+        flex: 1 1 50%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -553,6 +562,14 @@ body {
     .home .content p {
         font-size: 2rem;
     }
+
+    .contact .row {
+        flex-wrap: nowrap;
+    }
+
+    .contact .row form, .contact .row .image {
+        flex: 1 1 50%;
+    }
 }
 
 @media (max-width: 450px) {
@@ -581,5 +598,13 @@ body {
 
     .home .content p {
         font-size: 1.2rem;
+    }
+
+    .contact .row {
+        flex-wrap: nowrap;
+    }
+
+    .contact .row form, .contact .row .image {
+        flex: 1 1 50%;
     }
 }
