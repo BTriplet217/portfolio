@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -10,12 +11,14 @@
     font-family: "Poppins", sans-serif;
     transition: .2s linear;
 }
+
 :root {
     --bg-color: #ffffff;
     --second-bg-color: #a59faa;
     --text-color: #000000;
     --main-color: #b151ff;
 }
+
 *::selection {
     background: var(--main-color);
     color: var(--bg-color);
@@ -130,7 +133,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background: url(../images/flower-shop/roses.jpg) no-repeat;
-    background-size: cover;
+    background-size: 100% auto;
     background-position: center;
     width: 100vw;
     height: 100vh;
@@ -479,7 +482,19 @@ body {
     }
 
     .home {
-        background-position: left;
+        background-size: 100% auto;
+    }
+
+    .home .content h3 {
+        font-size: 5rem;
+    }
+
+    .home .content span {
+        font-size: 2.5rem;
+    }
+
+    .home .content p {
+        font-size: 1.5rem;
     }
 }
 
@@ -519,15 +534,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 6rem;
+        font-size: 4rem;
     }
 
     .home .content span {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .home .content p {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -539,6 +554,7 @@ body {
     .home {
         display: block;
         text-align: center;
+        background-size: 100% auto;
     }
 
     .home .content {
@@ -546,14 +562,14 @@ body {
     }
 
     .home .content h3 {
-        font-size: 5rem;
+        font-size: 3.5rem;
     }
 
     .home .content span {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .home .content p {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
 }
