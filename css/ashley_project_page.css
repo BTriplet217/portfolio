@@ -75,6 +75,8 @@ nav ul li a:hover, .nav ul li a.active {
     width: 100%;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    overflow: hidden; /* Ensure overflow is hidden */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }
 
 /* Footer */
