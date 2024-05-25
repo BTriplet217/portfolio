@@ -137,10 +137,12 @@ body {
     background-position: center;
     width: 100vw;
     height: 100vh;
+    padding: 0;
 }
 
 .home .content {
     max-width: 50rem;
+    margin: auto;
 }
 
 .home .content h3 {
@@ -168,7 +170,7 @@ body {
 
 .about .row .content h3 {
     font-size: 3rem;
-    color: var(--second-bg-color);
+    color: var (--second-bg-color);
 }
 
 .about .row .content h3 span {
@@ -555,6 +557,7 @@ body {
         display: block;
         text-align: center;
         background-size: 100% auto;
+        padding: 0;
     }
 
     .home .content {
