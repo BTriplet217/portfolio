@@ -528,91 +528,92 @@ h2 {
   }
 }
 
+@media (max-width: 768px) {
+    /* Adjusting text size for paragraphs */
+    #home p,
+    #about p {
+        font-size: 16px;
+    }
+
+    /* Adjusting image size on the home section */
+    #home img {
+        width: 60%;
+        height: auto;
+    }
+
+    /* Adjusting text size for headings */
+    h1 {
+        font-size: 80px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    /* General mobile adjustments */
+    .portfolio-box,
+    .skill-container {
+        width: 100%;
+    }
+
+    #skills {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    #home,
+    #about,
+    #portfolio,
+    #skills {
+        padding: 20px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+}
+
 @media (max-width: 480px) {
-  /* Adjust paragraph, footer text, and skill labels */
-  p, .footer-text p, .skill-label {
-      font-size: 16px; /* Smaller font size for readability */
-  }
+    /* Adjusting text size for paragraphs */
+    #home p,
+    #about p {
+        font-size: 14px;
+    }
 
-  .skill-label {
-      font-size: 20px; /* Slightly larger font size for skill labels */
-  }
+    /* Adjusting image size on the home section */
+    #home img {
+        width: 60%;
+        height: auto;
+    }
 
-  /* Adjust images in the portfolio and skills sections */
-  .portfolio-box img, .skills img {
-      height: 30px; /* Smaller images for consistency */
-  }
+    /* Adjusting text size for headings */
+    h1 {
+        font-size: 60px;
+    }
 
-  .footer-iconTop a i {
-      font-size: 1.4rem; /* Smaller footer icons */
-  }
+    h2 {
+        font-size: 30px;
+    }
 
-  .portfolio-box, .skill-container {
-      width: 100%; /* Full-width portfolio boxes and skill containers */
-  }
+    /* General mobile adjustments */
+    .portfolio-box,
+    .skill-container {
+        width: 100%;
+    }
 
-  /* Specific adjustments for the .about-img and .home img */
-#home img {
-  max-width: 1900px; /* Limit max width to maintain image quality */
-  display: block; /* Ensure it's block level for margin auto to work */
-  margin: auto; /* Center image and provide spacing below */
-  width: 100%;
-  height: 100%;
-  }
-  
+    #skills {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
 
-  #about img{
-    width: 100%; /* Large and centered above the text */
-    max-width: 900px; /* Limit max width to maintain image quality */
-    display: block; /* Ensure it's block level for margin auto to work */
-    padding-bottom: 0%;
-    padding-top: 0%;
-    margin: 0 auto; /* Center image and provide spacing below */
-    float:none;
-  }
+    #home,
+    #about,
+    #portfolio,
+    #skills {
+        padding: 20px;
+    }
 
-  .about-content {
-    text-align: left;
-    padding-left: 25%;
-    width: 650px;
-  }
-
-  #home p {
-    text-align: left;
-    padding-left: 5%;
-    width: 350px;
-  }
-
-  h1 {
-      font-size: 50px; /* Adjusted font size for headings */
-  }
-
-  h2 {
-      font-size: 30px; /* Smaller font size for subheadings */
-  }
-
-  p {
-    font-size: 15px;
-  }
-
-  #skills {
-      grid-template-columns: 1fr; /* Single column layout for skills */
-      padding: 20px; /* Adjust padding */
-  }
-
-  #home, .about, #portfolio, #skills {
-      padding: 20px; /* Uniform padding */
-  }
-
-  nav ul li {
-      margin: 0 10px; /* Adjust nav item spacing */
-  }
-
-  /* Ensure brushstroke animation covers portfolio-box on hover */
-  .portfolio-box:hover img {
-      width: 100%;
-      height: 100%;
-      clip-path: inset(0 0 0 0); /* Adjust clip-path to cover the box */
-      animation: brushStroke 1s forwards; /* Maintain animation on hover */
-  }
+    nav ul li {
+        margin: 0 10px;
+    }
 }
