@@ -474,37 +474,33 @@ body {
 
 /* --Media stuff-- */
 
-/* --Media stuff-- */
-
 @media (max-width: 991px) {
     html {
         font-size: 65%;
     }
 
-    header {
-        padding: 1rem;
-    }
-
-    section {
-        padding: 1rem;
-    }
-
     .home {
         background: url(../images/flower-shop/flower.png) no-repeat;
-        background-size: 100% auto;
+        background-size: cover;
         background-position: center;
     }
 
+    .home .content {
+        padding-left: 10%;
+        border-radius: 0%;
+        margin: 0%;
+    }
+
     .home .content h3 {
-        font-size: 6rem;
+        font-size: 9rem;
     }
 
     .home .content span {
-        font-size: 3.5rem;
+        font-size: 5.5rem;
     }
 
     .home .content p {
-        font-size: 2rem;
+        font-size: 3.5rem;
     }
 
     .contact .row {
@@ -520,6 +516,11 @@ body {
     header .bx-menu {
         display: block;
         border: .1rem solid rgba(0, 0, 0, .1);
+        padding: 0;
+    }
+
+    section {
+        padding: 0;
     }
 
     header .navbar {
@@ -538,7 +539,7 @@ body {
 
     header .navbar a {
         margin: 1.5rem;
-        padding: 1rem;
+        padding: 0;
         background: var(--bg-color);
         border: .1rem solid rgba(0, 0, 0, .1);
         display: block;
@@ -553,20 +554,26 @@ body {
 
     .home {
         background: url(../images/flower-shop/flower.png) no-repeat;
-        background-size: 100% auto;
+        background-size: cover;
         background-position: center;
     }
 
+    .home .content {
+        padding-left: 10%;
+        border-radius: 0%;
+        margin: 0%;
+    }
+
     .home .content h3 {
-        font-size: 5.5rem;
+        font-size: 7.5rem;
     }
 
     .home .content span {
-        font-size: 4rem;
+        font-size: 5rem;
     }
 
     .home .content p {
-        font-size: 2.5rem;
+        font-size: 4rem;
     }
 
     .contact .row {
@@ -587,26 +594,27 @@ body {
         display: block;
         text-align: center;
         background: url(../images/flower-shop/flower.png) no-repeat;
-        background-size: 100% auto;
+        background-size: cover;
         background-position: center;
-        padding: 0;
     }
 
     .home .content {
         max-width: 100%;
-        padding: 0 1rem;
+        padding-left: 10%;
+        border-radius: 0%;
+        margin: 0%;
     }
 
     .home .content h3 {
-        font-size: 6.5rem;
+        font-size: 8.5rem;
     }
 
     .home .content span {
-        font-size: 4.5rem;
+        font-size: 5.5rem;
     }
 
     .home .content p {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
     .contact .row {
