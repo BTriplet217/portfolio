@@ -28,13 +28,14 @@ h1 {
 }
 .input {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   z-index: 6;
 }
 input {
   font-size: 1em;
-  width: 6.25em;
+  width: 80%;
+  max-width: 6.25em;
   padding: 0.5em;
   border: none;
   outline: none;
@@ -79,13 +80,9 @@ button:hover {
   100% { box-shadow: 0 0 25px 21px #c73800; } 
 }
 
-
-
-
-
 #result {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   justify-content: center;
   text-align: center;
   gap: 1em;
@@ -115,4 +112,24 @@ button:hover {
   min-width: 100%;
   min-height: 100%;
   z-index: 0;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+  .input {
+    flex-direction: column;
+    width: 90%;
+  }
+  input {
+    width: 100%;
+    max-width: none;
+  }
+  button {
+    height: 100px;
+    width: 100px;
+  }
 }
