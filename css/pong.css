@@ -25,7 +25,13 @@ canvas {
         width: 100%;
         height: auto;
         max-width: 100%;
-        max-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    canvas {
+        width: 95%;
+        height: auto;
     }
 }
 
