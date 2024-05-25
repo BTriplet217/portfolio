@@ -478,7 +478,7 @@ body {
 
 @media (max-width: 991px) {
     html {
-        font-size: 100%;
+        font-size: 75%;
     }
 
     header {
@@ -494,15 +494,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 10vw;
+        font-size: 6rem;
     }
 
     .home .content span {
-        font-size: 5vw;
+        font-size: 3.5rem;
     }
 
     .home .content p {
-        font-size: 4vw;
+        font-size: 2rem;
     }
 
     .contact .row {
@@ -554,15 +554,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 12vw;
+        font-size: 6.5rem;
     }
 
     .home .content span {
-        font-size: 6vw;
+        font-size: 5rem;
     }
 
     .home .content p {
-        font-size: 5vw;
+        font-size: 5.5rem;
     }
 
     .contact .row {
@@ -576,7 +576,7 @@ body {
 
 @media (max-width: 450px) {
     html {
-        font-size: 100%;
+        font-size: 75%;
     }
 
     .home {
@@ -592,15 +592,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 15vw;
+        font-size: 6.5rem;
     }
 
     .home .content span {
-        font-size: 8vw;
+        font-size: 5.5rem;
     }
 
     .home .content p {
-        font-size: 6vw;
+        font-size: 3.5rem;
     }
 
     .contact .row {
