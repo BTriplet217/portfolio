@@ -496,14 +496,20 @@ h2 {
   }
 
   /* Portfolio adjustments */
-  .portfolio-box, .skill-container {
-      width: 95%;
+  .portfolio-box {
+      width: 85%;
       margin: 0 auto;
   }
 
-  .portfolio-box img, .skills img {
+  .portfolio-box h3 {
+    font-size: 50px;
+      text-align: center;
+      width: 70%;
+  }
+
+  .portfolio-box img{
       height: auto;
-      width: 80%;
+      width: 90%;
       margin: 0 auto;
   }
 
@@ -512,8 +518,8 @@ h2 {
       grid-template-columns: 1fr;
   }
 
-  #skill-container {
-    width: 60%;
+  .skill-container {
+    width: 50%;
   }
 
   /* Footer adjustments */
@@ -574,9 +580,15 @@ h2 {
       width: 95%;
   }
 
-  .portfolio-box img, .skills img {
+  .portfolio-box img{
       width: 95%;
       height: auto;
+  }
+
+  .portfolio-box h3 {
+    font-size: 50px;
+      text-align: center;
+      width: 70%;
   }
 
   #skills {
