@@ -170,7 +170,7 @@ body {
 
 .about .row .content h3 {
     font-size: 3rem;
-    color: var (--second-bg-color);
+    color: var(--second-bg-color);
 }
 
 .about .row .content h3 span {
@@ -484,7 +484,7 @@ body {
     }
 
     .home {
-        background-size: 100% auto;
+        background: none;
     }
 
     .home .content h3 {
@@ -535,6 +535,10 @@ body {
         flex: content;
     }
 
+    .home {
+        background: none;
+    }
+
     .home .content h3 {
         font-size: 4rem;
     }
@@ -556,7 +560,7 @@ body {
     .home {
         display: block;
         text-align: center;
-        background-size: 100% auto;
+        background: none;
         padding: 0;
     }
 
