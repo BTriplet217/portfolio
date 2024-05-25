@@ -452,7 +452,7 @@ h2 {
   }
 
   #home h1, #home h2 {
-      font-size: 70px;
+      font-size: 90px;
       text-align: center;
       width: 95%;
       margin: 0 auto;
@@ -465,6 +465,13 @@ h2 {
       flex-direction: column;
       align-items: center;
       text-align: center;
+  }
+
+  #about h1, #portfolio h1, #skills h1 {
+    font-size: 70px;
+      text-align: center;
+      width: 95%;
+      margin: 0 auto;
   }
 
   /* About section adjustments */
@@ -528,6 +535,13 @@ h2 {
 
   #home h2 {
       font-size: 30px;
+  }
+
+  #about h1, #portfolio h1, #skills h1 {
+    font-size: 40px;
+      text-align: center;
+      width: 95%;
+      margin: 0 auto;
   }
 
   #about img {
