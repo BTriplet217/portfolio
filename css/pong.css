@@ -16,21 +16,24 @@ canvas {
     margin: 20px auto;
     width: 100%;
     height: auto;
-    max-width: 800px;
+    max-width: 100%;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
     background-color: #fff;
 }
 
+/* Ensure canvas is responsive */
 @media (max-width: 600px) {
     canvas {
         width: 100%;
-        height: auto;
         max-width: 100%;
+        height: auto;
     }
 }
 
 @media (max-width: 480px) {
     canvas {
-        width: 95%;
+        width: 100%;
+        max-width: 100%;
         height: auto;
     }
 }
