@@ -480,7 +480,12 @@ body {
 
     .home {
         background-position: left;
+        background: url(../images/flower-shop/roses.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
     }
+
+    
 
 }
 
@@ -528,6 +533,12 @@ body {
         font-size: 2.5rem;
     }
 
+    .home{
+      background: url(../images/flower-shop/roses.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
+
 }
 
 @media (max-width: 450px) {
@@ -538,6 +549,9 @@ body {
     .home {
         display: block;
         text-align: center;
+        background: url(../images/flower-shop/roses.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
     }
 
     .home .content {
