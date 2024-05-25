@@ -445,7 +445,7 @@ h2 {
 
   /* Home section adjustments */
   #home img {
-      width: 80%;
+      width: 90%;
       height: auto;
       display: block;
       margin: 0 auto;
@@ -510,7 +510,10 @@ h2 {
   /* Skills section adjustments */
   #skills {
       grid-template-columns: 1fr;
-      width: 95%;
+  }
+
+  #skill-container {
+    width: 60%;
   }
 
   /* Footer adjustments */
@@ -557,7 +560,7 @@ h2 {
   }
 
   #about img {
-      width: 70%;
+      width: 90%;
       height: auto;
       margin: 0 auto;
       display: block;
@@ -578,6 +581,10 @@ h2 {
 
   #skills {
       grid-template-columns: 1fr;
+  }
+
+  #skill-container {
+    width: 60%;
   }
 
   .footer-text p {
