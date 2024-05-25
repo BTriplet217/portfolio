@@ -492,15 +492,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 7rem;
+        font-size: 5rem;
     }
 
     .home .content span {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .home .content p {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .contact .row {
@@ -552,15 +552,15 @@ body {
     }
 
     .home .content h3 {
-        font-size: 6rem;
+        font-size: 4.5rem;
     }
 
     .home .content span {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
     .home .content p {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .contact .row {
@@ -586,18 +586,19 @@ body {
 
     .home .content {
         max-width: 100%;
+        padding: 0 1rem;
     }
 
     .home .content h3 {
-        font-size: 8rem;
+        font-size: 5rem;
     }
 
     .home .content span {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .home .content p {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .contact .row {
