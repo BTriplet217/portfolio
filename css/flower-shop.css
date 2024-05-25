@@ -132,7 +132,7 @@ body {
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background: url(../images/flower-shop/roses.jpg) no-repeat;
+    background: url(../images/flower-shop/flower.png) no-repeat;
     background-size: 100% auto;
     background-position: center;
     width: 100vw;
@@ -143,29 +143,29 @@ body {
 .home .content {
     max-width: 50rem;
     margin: auto;
-    text-align: center; /* Center the text */
+    text-align: left; 
 }
 
 .home .content h3 {
     font-size: 6rem;
     color: var(--main-color);
-    text-align: center; /* Center the heading */
+    text-align: left; 
 }
 
 .home .content span {
     font-size: 2rem;
-    color: var(--second-bg-color);
-    padding: 1rem 0;
+    color: var(--main-color);
+    padding: 0;
     line-height: 1.5;
-    text-align: center; /* Center the span */
+    text-align: left; 
 }
 
 .home .content p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--text-color);
-    padding: 1rem 0;
+    padding: 0;
     line-height: 1.5;
-    text-align: center; /* Center the paragraph */
+    text-align: left;
 }
 
 .about .row .content {
@@ -589,7 +589,7 @@ body {
     }
 
     .home .content h3 {
-        font-size: 3.5rem;
+        font-size: 7rem;
     }
 
     .home .content span {
