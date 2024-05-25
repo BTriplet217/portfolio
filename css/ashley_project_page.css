@@ -11,7 +11,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/*Header and Nav */
+/* Header and Nav */
 header {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -73,6 +73,8 @@ nav ul li a:hover, .nav ul li a.active {
     color: var(--text-color);
     text-align: center;
     width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Footer */
@@ -88,6 +90,8 @@ nav ul li a:hover, .nav ul li a.active {
     font-size: 20px;
     text-align: center;
     white-space: nowrap; /* Prevents the text from wrapping */
+    overflow: hidden; /* Prevents text overflow */
+    text-overflow: ellipsis; /* Adds ellipsis (...) to overflowing text */
 }
 
 .footer-iconTop a {
@@ -124,6 +128,7 @@ nav ul li a:hover, .nav ul li a.active {
 
     .footer-text p {
         font-size: 16px;
+        white-space: normal; /* Allow text to wrap on smaller screens */
     }
 
     .footer-iconTop a i {
