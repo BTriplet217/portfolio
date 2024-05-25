@@ -403,6 +403,10 @@ font-size: 1.6rem;
     text-align: center;
   }
 
+  .about h2 {
+    text-align: center;
+  }
+
   .about-img {
     order: 2;
     text-align: center;
