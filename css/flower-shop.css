@@ -169,7 +169,7 @@ body {
 }
 
 .about .row .content h3 span {
-    color: var(--main-color);
+    color: var (--main-color);
 }
 
 .about .row .content p {
@@ -480,17 +480,10 @@ body {
 
     .home {
         background-position: left;
-        background: url(../images/flower-shop/roses.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
     }
-
-    
-
 }
 
 @media (max-width: 768px) {
-
     header .bx-menu {
         display: block;
         border: .1rem solid rgba(0, 0, 0, .1);
@@ -526,19 +519,16 @@ body {
     }
 
     .home .content h3 {
-        font-size: 5rem;
+        font-size: 6rem;
     }
 
     .home .content span {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
-    .home{
-      background: url(../images/flower-shop/roses.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
+    .home .content p {
+        font-size: 2rem;
     }
-
 }
 
 @media (max-width: 450px) {
@@ -549,9 +539,6 @@ body {
     .home {
         display: block;
         text-align: center;
-        background: url(../images/flower-shop/roses.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
     }
 
     .home .content {
@@ -559,11 +546,14 @@ body {
     }
 
     .home .content h3 {
-        font-size: 4rem;
+        font-size: 5rem;
     }
 
-    .home .content span,
+    .home .content span {
+        font-size: 3rem;
+    }
+
     .home .content p {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 }
