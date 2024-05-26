@@ -273,6 +273,8 @@ transform: scale(1.02);
   box-shadow: 0 0 1rem var(--bg-color);
   overflow: hidden;
   display: flex;
+  border: 4px outset var(--main-color);
+  border-radius: 40px 0px 40px 0px;
 }
 
 .xp-box img {
@@ -328,7 +330,6 @@ transform: scale(1.1);
   font-size: 2rem;
   color: var(--second-bg-color);
 }
-
 
 .footer {
   display: flex;
