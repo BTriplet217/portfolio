@@ -283,37 +283,39 @@ transform: scale(1.02);
 }
 
 .xp-box:hover img {
-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .xp-box .xp-layer {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0,0,0,.1), var(--main-color));
+  background: rgba(0, 0, 0, 0.5); /* Adjust the transparency as needed */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
   padding: 0 4rem;
-  transform: translateY(100%);
-  transition: .5s ease;
+  opacity: 1; /* Make sure it is always visible */
+  transition: background .5s ease; /* Maintain transition for background */
 }
 
 .xp-box:hover .xp-layer {
-  transform: translateY(0);
+  background: rgba(0, 0, 0, 0.7); /* Darken background on hover */
 }
 
 .xp-layer h4 {
   font-size: 3rem;
+  color: var(--text-color); /* Ensure text is visible */
 }
 
 .xp-layer p {
   font-size: 1.6rem;
   margin: .3rem 0 1rem;
+  color: var(--text-color); /* Ensure text is visible */
 }
 
 .xp-layer a {
