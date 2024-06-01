@@ -46,26 +46,20 @@
           <button class="button">Shared Features</button>
         </div>
 
-       
-    <div class="container"  id="side-nav">
-        <div  class="collapse">
-          <nav>
-              <ul>              
-                  <li><a href="#dice-roller">Dice Roller</a></li>
-                  <li><a href="#saving-throws">Saving Throws</a></li>
-                  <li><a href="#skills">Skills</a></li>
-                  <li><a href="#attacks-spellcasting">Attacks & Spellcasting</a></li>
-                  <li><a href="#equipment">Equipment</a></li>              
-              </ul>
-          </nav>
-      </div>
-    </div> 
+ 
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="#dice-roller">Dice Roller</a>
+      <a href="#saving-throws">Saving Throws</a>
+      <a href="#skills">Skills</a>
+      <a href="#attacks-spellcasting">Attacks & Spellcasting</a>
+      <a href="#equipment">Equipment</a>
+    </div>
+   
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button> 
+    </div>
 
-
-
-        <button id="theme-toggle" style="font-size: 24px; padding: 10px 20px;">
-            <span><i class='bx bx-adjust'></i></span>
-        </button>
             
         <button id="back-to-top" onclick="scrollToTop()">↑</button>
 
@@ -120,7 +114,7 @@
 
         <!-- Character Sheet Section -->
         <section id="character-sheet-section" class="main-character">
-            <h2>Character Sheet</h2>
+            <h2 style="color: #FFEFF4;">Character Sheet</h2>
             <form class="charsheet">
                 <div id="head">
                   <section class="charname">
@@ -136,7 +130,7 @@
                         <label for="background">Background</label><input name="background" placeholder="Acolyte" />
                       </li>
                       <li>
-                        <label for="playername">Player Name</label><input name="playername" placeholder="Sneaky McSneakface">
+                        <label for="playername">Player Name</label><input name="playername" placeholder="Nugget McNuggetFace">
                       </li>
                       <li>
                         <label for="race">Race</label><input name="race" placeholder="Half-elf" />
@@ -441,7 +435,25 @@
                     <section class="equipment" id="equipment">
                       <div>
                         <label>Equipment</label>
-                    
+                        <div class="money">
+                          <ul>
+                            <li>
+                              <label for="cp">cp</label><input name="cp" />
+                            </li>
+                            <li>
+                              <label for="sp">sp</label><input name="sp" />
+                            </li>
+                            <li>
+                              <label for="ep">ep</label><input name="ep" />
+                            </li>
+                            <li>
+                              <label for="gp">gp</label><input name="gp" />
+                            </li>
+                            <li>
+                              <label for="pp">pp</label><input name="pp" />
+                            </li>
+                          </ul>
+                        </div>
                         <textarea placeholder="Equipment list here"></textarea>
                       </div>
                     </section>
@@ -483,12 +495,12 @@
     </footer>
     <script>
       function openNav() {
-        document.getElementById("side-nav").style.width = "250px";
+        document.getElementById("mySidebar").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
       }
       
       function closeNav() {
-        document.getElementById("side-nav").style.width = "0";
+        document.getElementById("mySidebar").style.width = "0";
         document.getElementById("main").style.marginLeft= "0";
       }
       </script>
