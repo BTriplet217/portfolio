@@ -105,7 +105,7 @@ p {
 }  
 
 img {
-  max-width: 100%;
+  width: 60%;
   padding-top: 40px;
   margin: auto;
   display: block;
