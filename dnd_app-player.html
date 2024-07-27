@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Page</title>
+    <link rel="stylesheet" href="css/dnd_app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel|Fauna+One">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style id="backgroundimg">
+        body {
+          background-image: url("images/map.png");
+          background-repeat: no-repeat;
+          background-position: 50%;
+          background-size: cover;
+          scroll-behavior: smooth;
+          font-family: 'Fauna One', serif;
+          font-size: 16px; 
+        }
+        h1 {
+    font-family: Cinzel, serif;
+    font-size: 46px;
+    padding-bottom: 0;
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+#subtitle {
+    margin-top: 0; /* Remove top margin */
+    font-family: Cinzel, serif;
+    font-size: 20px;
+}
+
+
+        </style>
+</head>
+<body>
+    <header>
+        <h1>Campaign Chronicles</h1>
+        <h2 id="subtitle">Centralizing Your D&D Journeys</h2><br>
+
+        <div class="btn-group">
+          <a  href="dnd_app.html"><button class="button">Home</button></a>
+          <a  href="dnd_app-login.html"><button class="button">Login/ Sign Up</button></a>
+          <a href="dnd_app-dungeonmaster.html"><button class="button">Dungeon Master</button></a>
+          <a  href ="dnd_app-player.html"><button class="button">Players</button></a>
+          <a href="dnd_app-sharedfeatures.html"><button class="button">Shared Features</button></a>
+        </div>
+        <button id="back-to-top" onclick="scrollToTop()">↑</button>
+
+    </header>
+    <main>
+        <section id="player-campaigns">
+            <h2 style="text-align: center; color: white;">My Campaigns</h2>
+            <button onclick="addNewCampaign()">Add New Campaign</button>
+            <div id="campaign-list">
+                <!-- Campaigns will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Campaign Chronicles</p>
+    </footer>
+    <script src="js/player.js"></script>
+</body>
+</html>

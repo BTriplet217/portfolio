@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/dnd_app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel|Fauna+One">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style id="backgroundimg">
+        body {
+          background-image: url("images/map.png");
+          background-repeat: no-repeat;
+          background-position: 50%;
+          background-size: cover;
+          scroll-behavior: smooth;
+          font-family: 'Fauna One', serif;
+          font-size: 16px; 
+        }
+        h1 {
+    font-family: Cinzel, serif;
+    font-size: 46px;
+    padding-bottom: 0;
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+#subtitle {
+    margin-top: 0; /* Remove top margin */
+    font-family: Cinzel, serif;
+    font-size: 20px;
+}
+
+
+        </style>
+</head>
+<body>
+    <header>
+        <h1>Campaign Chronicles</h1>
+        <h2 id="subtitle">Centralizing Your D&D Journeys</h2><br>
+
+        <div class="btn-group">
+          <a  href="dnd_app.html"><button class="button">Home</button></a>
+          <a  href="dnd_app-login.html"><button class="button">Login/ Sign Up</button></a>
+          <a href="dnd_app-dungeonmaster.html"><button class="button">Dungeon Master</button></a>
+          <a  href ="dnd_app-player.html"><button class="button">Players</button></a>
+          <a href="dnd_app-sharedfeatures.html"><button class="button">Shared Features</button></a>
+        </div>
+        <button id="back-to-top" onclick="scrollToTop()">↑</button>
+
+    </header>
+    <main style="color: white; margin-top: 60vh; position: absolute; left: 50%; margin-right: -50%; transform: translate(-50%, -50%);">
+        <section id="login-section">
+            <h2 style="text-align: center">Login</h2>
+            <form id="login-form">
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" required>
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section><br><br>
+        <section id="register-section">
+            <h2 style="text-align: center">Register</h2>
+            <form id="register-form">
+                <label for="register-name">Name:</label>
+                <input type="text" id="register-name" required>
+                <label for="register-email">Email:</label>
+                <input type="email" id="register-email" required>
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" required>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Campaign Chronicles</p>
+    </footer>
+    <script src="js/login.js"></script>
+</body>
+</html>
