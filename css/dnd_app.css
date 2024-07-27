@@ -13,6 +13,10 @@ body {
     padding: 0;
     background-color: var(--background-light);
     color: var(--text-color-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 header {
@@ -22,11 +26,18 @@ header {
     text-align: center;
 }
 
-h1, #subtitle {color: #FFEFF4; text-shadow: #D32430 0 0 10px;}
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-
-
-
+h1, #subtitle {
+    color: #FFEFF4;
+    text-shadow: #D32430 0 0 10px;
+}
 
 /*Character Sheet*/
 .charsheet {
@@ -188,19 +199,19 @@ h1, #subtitle {color: #FFEFF4; text-shadow: #D32430 0 0 10px;}
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-  }
+}
   
-  .btn-group .button:not(:last-child) {
+.btn-group .button:not(:last-child) {
     border-right: none; /* Prevent double borders */
-  }
+}
   
-  .btn-group .button:hover {
+.btn-group .button:hover {
     background-color: #D32430;
     color: var(--text-color-light);
     border-radius: 20px;
-  }
+}
 
-  .sidebar {
+.sidebar {
     height: 50%;
     width: 0;
     position: fixed;
@@ -214,30 +225,30 @@ h1, #subtitle {color: #FFEFF4; text-shadow: #D32430 0 0 10px;}
     transition: 0.5s;
     padding-top: 60px;
     box-shadow: inset 0px 0px 5px 2px #00000091;
-  }
-  
-  .sidebar a {
+}
+
+.sidebar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: var(--text-color-light);
     display: block;
     transition: 0.3s;
-  }
-  
-  .sidebar a:hover {
+}
+
+.sidebar a:hover {
     color: #D32430;
-  }
-  
-  .sidebar .closebtn {
+}
+
+.sidebar .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-  }
-  
-  .openbtn {
+}
+
+.openbtn {
     font-size: 20px;
     cursor: pointer;
     background-color: #582d30;
@@ -245,22 +256,19 @@ h1, #subtitle {color: #FFEFF4; text-shadow: #D32430 0 0 10px;}
     padding: 10px 15px;
     box-shadow: inset 0px 0px 5px 2px #00000091;
     top: 50%;
-    left: 20px;
+    left: 0;
     position: fixed;
-  }
-  
-  .openbtn:hover {
+}
+
+.openbtn:hover {
     background-color: #D32430;
-  }
-  
-  #main {
+}
+
+#main {
     transition: margin-left .5s;
     padding: 16px;
     float: left;
-  }
-
-
-
+}
 
 .menu-icon {
     display: none;
@@ -284,7 +292,6 @@ h1, #subtitle {color: #FFEFF4; text-shadow: #D32430 0 0 10px;}
     text-decoration: none;
     color: var(--link-color);
 }
-
 
 /* Character Sheet Styles */
 #character-sheet-section {
@@ -331,7 +338,7 @@ button:hover, #theme-toggle:hover {
     cursor: pointer; /* Cursor changes to pointer on hover */
 }
 
-#theme-toggle{
+#theme-toggle {
     position: absolute;
     top: 0;
     right: 0;
@@ -351,6 +358,7 @@ button:hover, #theme-toggle:hover {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    z-index: 50;
 }
 
 /* Show the button when scrolled down */
@@ -358,12 +366,16 @@ body.scrolled #back-to-top {
     display: block;
 }
 
-
 footer {
-    text-align: center;
-    padding: 20px 0;
     background-color: var(--primary-color);
     color: var(--text-color-light);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    margin-top: auto;
 }
 
 .dark-mode {
@@ -375,8 +387,7 @@ footer {
     h1, #subtitle {color: #FFEFF4; text-shadow: #D32430 0 0 10px;}
     nav ul {background-color: transparent;}
     #character-sheet-section {color: var(--text-color-light);}
-    .dropdown-content{background-color: #FFEFF4;
-        color: #BBBCAC;}
+    .dropdown-content {background-color: #FFEFF4; color: #BBBCAC;}
 }
 
 /* Responsive Design */
@@ -384,7 +395,6 @@ footer {
     #character-sheet-form {
         grid-template-columns: 1fr;
     }
-
 }
 
 @media (max-width: 768px) {
@@ -402,6 +412,4 @@ footer {
     .nav-menu ul li {
         margin: 10px 0;
     }
-
 }
-
