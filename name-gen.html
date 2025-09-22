@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Nickname Generator — Topic-aware</title>
+  <style>
+    :root{
+      --bg:#0b0f1a; --panel:#11182a; --ink:#eef2ff; --muted:#9fb0d7;
+      --accent:#6dd6ff; --accent-2:#a78bfa; --border:#1c2440; --chip:#0e1530;
+      --stage:#0a1022; --focus:#74f; --success:#2ecc71;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb; --panel:#fff; --ink:#0f1320; --muted:#5b647d; --accent:#3d57ff;
+        --accent-2:#7c3aed; --border:#e7e9f3; --chip:#eef1ff; --stage:#f3f6ff; --focus:#3758f9;
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(109,214,255,.14), transparent 60%),
+                  radial-gradient(900px 600px at 120% 20%, rgba(167,139,250,.10), transparent 60%),
+                  var(--bg);
+      color:var(--ink); line-height:1.45; -webkit-font-smoothing:antialiased;
+    }
+
+    .wrap{max-width:960px; margin:0 auto; padding:16px clamp(14px,4vw,24px) 28px; display:flex; flex-direction:column; gap:12px}
+    h1{margin:0; font-weight:800; letter-spacing:.2px; font-size:clamp(20px,6vw,32px)}
+
+    button{
+      appearance:none; border:1px solid var(--border);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, var(--accent-2) 8%), var(--panel));
+      color:var(--ink); border-radius:12px; padding:12px 14px; font-weight:700;
+      font-size:14px; cursor:pointer; transition:transform .06s ease, box-shadow .2s ease, border-color .2s ease;
+      min-height:44px;
+    }
+    button.primary{
+      background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 85%, #fff 5%), color-mix(in oklab, var(--accent) 65%, #000 5%));
+      color:#031019; border-color: color-mix(in oklab, var(--accent) 40%, var(--border)); text-shadow:0 1px 0 rgba(255,255,255,.25);
+    }
+    button:hover{box-shadow:0 6px 22px rgba(0,0,0,.22)}
+    button:active{transform:translateY(1px)}
+    button:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+
+    .card{background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, #000 8%), var(--panel));
+      border:1px solid var(--border); border-radius:16px; padding:14px; box-shadow:0 6px 24px rgba(0,0,0,.18)}
+    .row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+    .grid{display:grid; grid-template-columns:1fr; gap:10px}
+    @media(min-width:680px){ .grid{grid-template-columns:repeat(3, minmax(0,1fr))} }
+
+    label{font-size:12px; color:var(--muted); display:block; margin:2px 0 6px}
+    select, input[type="text"]{
+      width:100%; padding:12px 14px; border-radius:12px;
+      background: color-mix(in oklab, var(--panel) 65%, #000 25%);
+      color:var(--ink); border:1px solid var(--border); font-size:15px;
+      transition:border-color .2s, box-shadow .2s, background .2s; min-height:44px;
+    }
+
+    .stage{min-height:120px; padding:16px; border-radius:14px; background:var(--stage);
+      border:1px dashed color-mix(in oklab, var(--border) 70%, #000 10%); display:flex; align-items:center; justify-content:center; text-align:center}
+    .nickname{font-size:clamp(22px,6.2vw,36px); display:flex; flex-wrap:wrap; gap:8px; line-height:1.35; justify-content:center}
+    .chip{display:inline-block; padding:8px 10px; border-radius:10px; background:#fff; color:#000;
+      box-shadow:0 1px 0 rgba(255,255,255,.28) inset, 0 6px 18px rgba(0,0,0,.28); transition:transform .15s ease, box-shadow .2s ease}
+    .chip:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.32)}
+    .glue{opacity:.9; color:color-mix(in oklab, var(--accent-2) 65%, #fff 10%); font-weight:800}
+
+    .status{font-size:12.5px; color:var(--muted)}
+    .status.ok{color:var(--success); font-weight:700}
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <h1>Nickname Generator</h1>
+
+    <div class="card">
+      <label for="category">Choose a descriptive category (optional):</label>
+      <select id="category">
+        <option value="">-- None --</option>
+        <option value="animals">Animals</option>
+        <option value="space">Space</option>
+        <option value="food">Food</option>
+        <option value="tech">Tech</option>
+        <option value="water">Water</option>
+        <option value="fire">Fire</option>
+        <option value="grass">Grass</option>
+        <option value="electric">Electric</option>
+        <option value="ice">Ice</option>
+        <option value="fighting">Fighting</option>
+        <option value="psychic">Psychic</option>
+        <option value="dark">Dark</option>
+        <option value="ghost">Ghost</option>
+        <option value="fairy">Fairy</option>
+        <option value="dragon">Dragon</option>
+        <option value="steel">Steel</option>
+        <option value="rock">Rock</option>
+        <option value="ground">Ground</option>
+        <option value="poison">Poison</option>
+        <option value="bug">Bug</option>
+        <option value="flying">Flying</option>
+        <option value="normal">Normal</option>
+        <option value="mischief">Mischief</option>
+        <option value="weather">Weather</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <label for="mustInclude">Must-include word (optional)</label>
+      <input id="mustInclude" type="text" placeholder="e.g., otter, quantum, toast"/>
+    </div>
+
+    <div class="card">
+      <div class="grid">
+        <div>
+          <label for="count">Words</label>
+          <select id="count">
+            <option selected>2</option>
+            <option>3</option>
+          </select>
+        </div>
+        <div>
+          <label for="alliterate">Alliteration</label>
+          <select id="alliterate">
+            <option value="off" selected>Off</option>
+            <option value="on">On</option>
+          </select>
+        </div>
+        <div>
+          <label for="profanity">Profanity filter</label>
+          <select id="profanity">
+            <option value="on" selected>On</option>
+            <option value="off">Off</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:12px; justify-content:space-between">
+        <div class="row control-buttons" style="gap:8px">
+          <button id="copyBtn" aria-label="Copy nickname">Copy</button>
+          <button id="genBtn" class="primary" aria-label="Generate nickname">Generate</button>
+        </div>
+        <span id="status" class="status">Ready</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="stage"><div id="nickname" class="nickname" aria-live="polite"></div></div>
+    </div>
+  </div>
+
+  <script>
+    // ===== Profanity =====
+    const BAD=["fuck","shit","bitch","asshole","bastard","dick","piss","pussy","slut","whore","cunt","cock","bollocks","wank"];
+    const isBad=w=>BAD.includes(String(w).toLowerCase());
+
+    // ===== FULL WORD BANKS (never shortened) =====
+    const ADJ=['brisk','blunt','cosmic','crispy','daring','dusty','feral','fizzy','frosty','glitchy','gritty','hollow','hype','icy','inky','jaunty','jittery','lunar','mellow','neon','nifty','noisy','odd','peppered','plucky','prickly','quantum','raging','rusty','salty','sly','smoky','snappy','solar','spicy','spiral','stormy','tangled','tipsy','ultra','vexed','vivid','wavy','wonky','xeno','yawning','zesty','adamant','airy','amber','ancient','angular','arcane','ashen','atomic','baggy','barren','beaming','bitter','blazing','bleak','blurry','boiling','bouncy','briny','brittle','bronzed','bubbly','burnt','buzzing','chalky','charred','chewy','chilly','chunky','clammy','clanky','clumsy','cobalt','coarse','cobbled','cracked','creaky','crispened','crooked','crude','crunchy','cryptic','crystal','curvy','damp','dappled','dazed','dense','dewy','dingy','drippy','drowsy','dry','earthy','echoing','edgy','elastic','electric','ethereal','faded','fake','feeble','fiery','filmy','flaky','flaming','flimsy','foggy','foamy','fractured','fragile','frantic','frayed','frozen','fuzzy','gaudy','ghostly','gleaming','glossy','gnarled','gooey','grainy','grimy','grizzled','groggy','hairy','hazy','hefty','hoarse','humid','husky','icy-blue','jaded','jagged','jazzy','jerky','jolly','jumbled','keen','knotty','kooky','lacy','lanky','lavish','leafy','leathery','limp','loopy','lopsided','lush','lustrous','madcap','mangled','meaty','messy','misty','moldy','murky','musty','nagging','narrow','nutty','oily','oozing','opaque','orbital','pale','patchy','pebbled','perky','phantom','pitted','plump','porous','posh','quaking','quaint','queasy','quick','quiet','quirky','ragged','rainy','raw','reckless','reedy','reeky','ripe','rocky','rough','rowdy','rugged','runny','sandy','sappy','scaly','scarred','scrappy','scruffy','seedy','shadowy','shaky','shiny','shoddy','shrieking','shrunken','silken','silvery','sizzling','slack','slender','slick','slimy','sludgy','slushy','soaked','soapy','sooty','sour','sparkly','sparse','speedy','spiky','splintered','spongy','spry','squishy','stale','starchy','steamy','stiff','sticky','stony','stout','strange','stretchy','stubby','sturdy','subtle','sugary','swampy','swirly','tacky','tainted','teary','thorny','thrifty','thunderous','tidy','toasty','tough','trippy','trivial','turbid','twisted','uncanny','uneven','unkempt','unstable','untamed','vaporous','velvety','void','volcanic','wan','warped','watery','weathered','weepy','whiny','whirling','whiskered','whistling','wilted','windy','wiry','withered','woolly','woozy','wrinkled','yappy','yawpy','yeasty','yielding','zany','zingy','zonal','purple','red','orange','yellow','green','blue','black','white','pink'];
+
+    const ANIMALS=['badger','beagle','bison','bobcat','cougar','coyote','cricket','dolphin','donkey','dragonfly','eagle','ferret','fox','goose','hyena','ibis','jaguar','lemur','llama','marmot','narwhal','otter','panda','panther','quokka','raccoon','raven','seal','shark','sloth','sparrow','tortoise','urchin','viper','walrus','wombat','yak','zebra'];
+
+    const OBJECTS=[
+      'apricot','backpack','banjo','blender','boombox','cabbage','cassette','chisel','comet','crouton','doughnut','ember','gizmo','helmet','jukebox','keystone','lantern','marble','marzipan','nebula','noodle','oyster','paperclip','pogo','pylon','quartz','raindrop','satchel','skillet','spatula','sprinkle','tokens','trumpet','umbrella','velcro','yoyo','zeppelin',
+      'apple','anvil','arrow','ashtray','axle','bagel','ball','balloon','barrel','basket','battery','bean','beacon','beehive','bell','bench','bicycle','binder','blanket','block','board','book','bottle','bow','box','bracelet','brick','broom','brush','bucket','button','cactus','candle','candy','canoe','cap','car','card','carpet','cart','cartridge','catapult','chain','chair','chalk','charm','cheese','cherry','chessboard','chopstick','clock','clover','coat','coin','compass','computer','cone','cookie','cord','cork','crown','cube','cup','curtain','cushion','dagger','dice','dish','disk','drill','drum','fan','feather','fence','fiddle','film','flame','flask','flute','fork','funnel','gallon','garlic','gear','gem','glove','goblet','guitar','hammer','harp','hat','hinge','hook','horn','hose','house','iceberg','icicle','idol','inkwell','iron','jacket','jar','javelin','jewel','joystick','jug','kettle','kite','knife','knob','ladder','lasso','leaf','lemon','letter','lever','lid','lime','lock','log','lute','magnet','map','mask','match','medal','mirror','mitt','mop','mug','mushroom','needle','nest','net','nickel','notebook','nut','obelisk','oil','onion','orange','pail','paintbrush','palette','pan','peanut','pear','pen','pencil','pepper','phone','piano','pickaxe','picture','piggybank','pillow','pinecone','pinwheel','pipe','pizza','plank','plate','pliers','plug','plum','pocket','poster','pot','potato','present','prism','pumpkin','purse','puzzle','quill','quiver','rack','radio','raft','rattle','ring','robot','rocket','rod','roller','rope','rose','rug','ruler','sack','saddle','sail','sandal','sandwich','saw','scarf','scissors','scooter','screw','scroll','seed','shard','shelf','shell','shirt','shoe','shovel','sign','soap','sock','soda','spade','spark','sphere','spoon','spring','stamp','star','statue','stick','stone','stool','stove','straw','string','suitcase','sunflower','sword','table','tag','tank','teacup','teapot','teddy','tent','thread','ticket','tile','tin','tire','toast','toaster','tooth','torch','towel','toy','train','tray','tree','trophy','tube','tunnel','tusk','twig','typewriter','urn','vase','vine','violin','wagon','watch','wheel','whistle','window','wire','wrench','xylophone','yarn','zucchini','zipper',
+      'airplane','anchor','apron','arch','bag','balcony','bandage','bar','barn','bead','benchpress','blade','blimp','boardgame','boiler','bookmark','boom','bowlingball','bread','bridge','brooch','brushstroke','bubble','burger','cabinet','cake','calendar','camera','campfire','can','cannon','cape','carrot','carton','casserole','chainmail','chalice','chalkboard','charger','cheeseburger','chip','clamp','clipboard','cloud','clutch','coaster','cobweb','collar','comic','compassrose','conehead','controller','cookiejar','corkscrew','couch','cradle','crayon','creamer','crest','crossbow','cufflink','curry','dart','decanter','deck','desk','dial','diamond','doll','domino','door','doorknob','doormat','drain','drawer','earring','egg','eggplant','envelope','eraser','escalator','fabric','fanbelt','faucet','figurine','fireplace','fishbowl','flag','flashlight','floor','flower','foam','football','fridge','fryingpan','garden','gate','gazebo','gift','goggles','grain','grater','greenhouse','gumball','hairbrush','hairpin','hanger','harmonica','haystack','headphones','hedge','helmetpiece','highchair','hood','hopscotch','icecream','jungle gym','keyboard','key','keychain','kiosk','kiteboard','lanternpole','laptop','laundry','lawnmower','letterbox','lifeboat','lifebuoy','lightbulb','lighter','lighthouse','locket','luggage','magazine','mailbox','mattress','megaphone','menu','microphone','microscope','milk','milkshake','minivan','mirrorball','mortar','motorbike','muffin','napkin','newspaper','nightstand','nugget','oven','padlock','paint','parasol','pasta','pebble','perfume','petal','photo','piano bench','pictureframe','pingpong','placemat','plant','plierset','plunger','popcorn','postcard','posterboard','powerbank','pyloncone','quartzite','quilt','racket','raincoat','record','remote','revolver','road','robotarm','rollingpin','roof','salt','sandbag','saucer','scalpel','sconce','scoreboard','screen','screwdriver','seesaw','shaker','sheet','ship','shoelace','shoppingcart','shorts','shuttle','sink','skateboard','sled','sleeve','slipper','snowball','snowman','soapbox','sockpuppet','soda can','speaker','sponge','spraycan','sprinkler','stapler','station','sticker','stonewall','stopwatch','strawberry','streetlamp','stroller','subway','suit','surfboard','syringe','tagboard','tap','teabag','thermos','thimble','threadspool','ticketstub','tie','tongs','toolbox','toothbrush','toothpaste','top','tornado','tractor','trafficcone','trashcan','treasure','trumpetcase','tshirt','turntable','tweezers','twine','tv','ufo','utensil','valve','vent','videotape','vineyard','wallet','wardrobe','washingmachine','wateringcan','windowpane','windsock','windmill','windshield','wineglass','workbench','wristwatch','yo-yo string','yolk','zamboni','zebra crossing','ziploc'
+    ];
+
+    const ROLES=['archivist','bandit','barista','captain','chemist','cowpoke','detective','druid','engineer','gambler','guardian','herald','hacker','jester','keeper','marshal','nomad','oracle','outlaw','pilot','poet','ranger','scout','smith','sorcerer','squire','tinkerer','warden','wizard',
+      'actor','adventurer','alchemist','ambassador','apprentice','archer','artist','assassin','astronaut','author','baker','bard','beastmaster','beggar','blacksmith','bowman','brewer','butcher','caretaker','carpenter','cartographer','champion','chancellor','clerk','clown','commander','conjurer','cook','counselor','courier','cultist','dancer','daredevil','diplomat','doctor','emperor','empress','enchanter','executioner','explorer','farmer','fighter','fisherman','general','gladiator','governor','gravedigger','healer','hermit','historian','hunter','illusionist','innkeeper','inventor','judge','king','knight','lawyer','librarian','lord','magician','maid','manager','master','merchant','miner','monarch','monk','musician','necromancer','ninja','nun','nurse','official','paladin','peasant','philosopher','pirate','priest','princess','prince','prisoner','professor','prophet','queen','raider','rebel','researcher','revolutionary','rogue','sailor','scribe','seer','sentinel','servant','shaman','shepherd','sheriff','singer','slave','soldier','soothsayer','spartan','strategist','student','summoner','tailor','teacher','thief','traveler','trickster','tyrant','villager','villain','visionary','vocalist','volunteer','warlock','warrior','watchman','witch','witchdoctor','writer','abbot','acolyte','archbishop','aristocrat','artisan','assessor','baron','bishop','brigand','broker','captor','castellan','chieftain','civilian','cleric','collector','colonel','confessor','constable','councilor','craftsman','crier','cultivator','curator','custodian','czar','deacon','desperado','dictator','disciplinarian','diviner','duchess','duke','earl','emissary','executor','exile','exorcist','falconer','fencer','foreman','founder','friar','garrison','goatherd','governor-general','guildmaster','harlequin','headmaster','high priest','host','hunter-gatherer','interpreter','ironmonger','janitor','journeyman','justiciar','lady','landlord','legionnaire','legate','lieutenant','magus','majordomo','matriarch','mentor','messenger','minister','missionary','mystic','navigator','nun-prioress','officer','overseer','page','paragon','patriarch','pearl diver','plowman','porter','preacher','prefect','president','priestess','prime minister','protector','provost','reaper','rector','regent','relic-keeper','scribe-monk','senator','servitor','shogun','sultan','taxman','templar','tenant','trader','treasurer','tribune','usher','vizier','wardeness','wayfarer','witch-hunter','zealot'
+    ];
+
+    const ODDBALLS=['afterglow','sidequest','daydream','freefall','starlight','switchback','moonshot','windbreak','headstart','lockpick','raincheck','mainspring','nightwatch','undercurrent','whiplash','backfire','blackout','blindspot','blueprint','breakpoint','bystander','catcall','chokepoint','cliffhanger','coldfront','comeback','crashland','crossfire','daybreak','deadend','deepcut','downfall','drawbridge','driftwood','dropkick','fasttrack','feedback','firestorm','flashpoint','floodgate','foothold','forethought','ghostlight','gridlock','groundwork','halftime','hardline','hindsight','homespun','hotwire','jackknife','keystone','landslide','lifeline','lowlight','mainframe','makeweight','mindset','misfire','namesake','nexus','nightfall','outbreak','overdrive','overhang','overtime','pathfinder','pitfall','powerplay','punchline','quicksand','riptide','roadblock','roughcut','runoff','scapegoat','sideshow','skylight','slapdash','slingshot','slowburn','smokescreen','snapback','snowdrift','soundcheck','spillover','springboard','standstill','steamroll','stepstone','stockpile','stopgap','stronghold','sunbeam','sundown','tailspin','takeoff','throwback','tideline','tightrope','timebomb','timespan','tipoff','touchstone','tradeoff','treadmill','undertow','uplink','upswing','upturn','watermark','waypoint','wildcard','workaround','spirograph','carthage'];
+
+    // TOPICS (full)
+    const TOPIC = {
+      animals:['cat','dog','wolf','fox','bear','otter','shark','whale','raven','lion','tiger','panda','llama','yak','zebra','sloth','ferret','hyena','lemur','badger','beagle','bison','bobcat','cougar','coyote','cricket','dolphin','donkey','dragonfly','goose','jaguar','marmot','narwhal','panther','quokka','raccoon','seal','sparrow','tortoise','viper','walrus','wombat'],
+      space:['space','cosmic','star','lunar','solar','galaxy','nebula','comet','asteroid','orbit','rocket','moon','planet','rings','saturn','mars','venus','mercury','jupiter'],
+      food:['cookie','cake','waffle','noodle','apricot','doughnut','marzipan','oyster','cabbage','sprinkle','pickle','pizza','burger','fries','sushi','taco','cheese','cheese cake','double bubble','mountain dew','coke'],
+      tech:['code','coder','dev','debug','hacker','engineer','gizmo','lantern','keystone','boombox','cassette','jukebox','server','python','javascript','frontend','designer'],
+      water:['beach','surf','river','sea','ocean','wave','otter','seal','dolphin','shark','boat','sail','anchor','harbor','harpoon','tide','current','splash','bubble','whirlpool','gull','pelican','whale','orca','lagoon','coral','reef','kelp','squid','octopus','jellyfish','urchin','lobster','clam','crab','plankton','algae','trident','pirate','shipwreck','tsunami','flood','spray','geyser','fountain','pond','lake','stream','bay'],
+      fire:['flame','ember','spark','smoke','ash','cinder','torch','blaze','bonfire','campfire','wildfire','volcano','magma','lava','inferno','furnace','charcoal','kindling','pyre','scorch','flare','ignition','match','fireplace','lantern','hearth','molten','sizzle','burn','torchlight','dragonfire','hellfire','flash','smolder','flaregun','candle','wick','oil lamp','molotov','phoenix','firestorm','fireball','combustion','heatwave','emberglow','wildspark','blast','steam','flicker','arson'],
+      grass:['leaf','vine','tree','forest','jungle','garden','grove','meadow','field','seed','sprout','sapling','blossom','flower','rose','tulip','daisy','petal','thorn','weed','herb','moss','fern','ivy','shrub','bush','hedge','lawn','clover','oak','pine','willow','maple','bamboo','palm','acorn','chestnut','sunflower','dandelion','cotton','cactus','reed','grain','corn','wheat','harvest','hay','roots','stalk','stump','branch'],
+      electric:['bolt','spark','shock','current','wire','circuit','battery','voltage','powerline','outlet','plug','socket','lightbulb','neon','generator','turbine','coil','tesla','static','charge','amp','ohm','resistor','fuse','transformer','antenna','radar','signal','lightning','storm','ion','conduit','switch','button','remote','telegraph','radio','satellite','laser','beacon','buzz','grid','arc','electrode','plasma','neutrino','overload','shockwave','zapper','capacitor','glow'],
+      ice:['snow','frost','hail','sleet','blizzard','avalanche','glacier','iceberg','icicle','snowflake','snowman','polar','tundra','permafrost','snowstorm','shiver','freeze','crystal','frozen','chill','cold','subzero','winter','flurry','slush','snowball','snowshoe','sled','ski','igloo','arctic','antarctic','aurora','northern lights','glacial','snowdrift','icecap','snowfield','snowfox','walrus','seal','penguin','polar bear','husky','snowmobile','frostbite','hailstone','drift','whiteout'],
+      fighting:['punch','kick','jab','hook','uppercut','grapple','throw','tackle','slam','elbow','knee','strike','block','parry','counter','wrestle','chop','clash','duel','spar','combat','battle','arena','dojo','ring','boxing','karate','judo','kungfu','taekwondo','muaythai','martial arts','warrior','glove','belt','training','coach','referee','opponent','champion','tournament','stance','guard','swordplay','melee','scuffle','rumble','contest','brawler','fighter'],
+      psychic:['mind','thought','dream','vision','aura','spirit','soul','meditation','focus','brain','memory','future','premonition','telepathy','telekinesis','astral','illusion','mirage','phantasm','hypnosis','sleep','nightmare','third eye','mantra','levitation','prophecy','divination','tarot','energy','pulse','zen','calm','insight','oracle','seer','psychic','medium','ghost','dreamscape','mental','clarity','awakening','perception','awareness','lucid','mindscape','echo','intuition','psychosis','visionary'],
+      dark:['shadow','night','eclipse','moon','void','hollow','grim','phantom','specter','noir','shade','blackout','raven','crow','bat','gloom','oblivion','crypt','dusk','midnight','cobweb','fang','fangs','howl','demon','curse','omen','pact','grave','coffin','tomb','mask','sin','evil','fear','terror','nightfall','lurker','ghoul','haunt','stalker','cloaked','vampire','wolf','werewolf','pitch','black','chaos','wicked','shadeborn','bleak'],
+      ghost:['spirit','phantom','wraith','apparition','haunt','specter','shade','poltergeist','soul','ghast','crypt','tombstone','graveyard','cemetery','urn','coffin','mummy','zombie','ghoul','phantasm','shroud','seance','medium','afterlife','ectoplasm','haunting','chill','coldspot','moan','whisper','possession','curse','ritual','banshee','phantasmagoria','phantasmal','phantasmic','ghastly','phantas','phantomlight','phantomfire','phantomcry','phantomveil','phantomshade','phantomgrave','phantomhaunt','phantomblood','phantomhymn','phantomdirge'],
+      fairy:['pixie','sprite','nymph','elf','fae','fairy','unicorn','pegasus','rainbow','starlight','moonbeam','glitter','glow','sparkle','shimmer','twinkle','crystal','diamond','opal','gem','rose','petal','blossom','lily','garden','meadow','songbird','butterfly','hummingbird','aurora','dream','wish','magic','charm','enchant','blessing','grace','halo','tiara','princess','prince','wand','glamour','myth','miracle','serenade','lullaby','flute'],
+      dragon:['dragon','wyrm','serpent','drake','wyvern','hydra','leviathan','fang','scale','claw','wing','talon','breath','firebreath','stormbreath','icebreath','sky','storm','roar','myth','legend','ancient','eternal','lair','hoard','treasure','cave','mountain','volcano','guardian','ruler','king','queen','giant','immortal','beast','monster','predator','apex','skyterror','skywing','dreadwing','stormfang','fireclaw','icefang','stormscale','thunderfang','doomwing'],
+      steel:['iron','metal','copper','bronze','silver','gold','platinum','nickel','chrome','steel','alloy','ore','ingot','hammer','anvil','forge','smithy','sword','shield','armor','helmet','gauntlet','chain','cog','gear','bolt','screw','hinge','nail','rivet','sprocket','bar','beam','frame','machine','engine','robot','android','cyborg','construct','fortress','tower','tank','drill','saw','blade','knife','gun','pistol','cannon','rifle','bullet'],
+      rock:['stone','boulder','pebble','rock','crag','mountain','cliff','cave','stalactite','stalagmite','ore','fossil','gem','crystal','quartz','granite','limestone','sandstone','basalt','shard','rubble','rune','pillar','monolith','statue','idol','altar','fortress','wall','barricade','bridge','arch','plateau','mesa','butte','gorge','canyon','desert','badland','landslide','avalanche','earthquake','fault','rift','erosion','summit','peak','bedrock','quarry','mine','tunnel'],
+      ground:['soil','sand','mud','dirt','earth','clay','dust','pebble','gravel','stone','rock','quicksand','desert','dune','oasis','plain','prairie','field','valley','canyon','mesa','butte','badland','plateau','savanna','steppe','gully','ravine','riverbed','marsh','swamp','bog','pit','trench','farm','garden','burrow','den','nest','hole','molehill','anthill','footprint','track','trail','path','road','fieldwork','terrain','underground'],
+      poison:['toxin','venom','acid','slime','mire','quagmire','fungus','spore','mold','plague','disease','rot','decay','filth','stench','smog','gas','fume','vapor','stink','ooze','seep','sludge','mucus','bile','pus','poison','serpent','cobra','fang','scorpion','sting','hornet','wasp','tarantula','black widow','toad','frog','wart','witch','cauldron','brew','potion','elixir','brewage','toxicant','contagion','hazard','radiation'],
+      bug:['beetle','ant','bee','wasp','hornet','termite','locust','cicada','grasshopper','mantis','aphid','weevil','moth','butterfly','dragonfly','damselfly','mosquito','gnat','fly','spider','tick','mite','flea','silverfish','cockroach','firefly','ladybug','inchworm','caterpillar','grub','pupa','larva','worm','maggot','centipede','millipede','earwig','scorpionfly','lacewing','mayfly','stonefly','leafhopper','stickbug','walkingstick','beetleling','hive','colony','swarm','nest'],
+      flying:['wing','feather','sky','air','cloud','wind','gust','breeze','draft','storm','hurricane','cyclone','zephyr','flight','glide','soar','flap','lift','hover','propeller','plane','jet','glider','kite','balloon','parachute','eagle','hawk','falcon','owl','gull','crow','raven','bat','swan','crane','stork','ibis','heron','albatross','vulture','condor','robin','sparrow','swallow','swift','martin','songbird','skylark','aeronaut'],
+      normal:['man','woman','child','family','dog','cat','mouse','rat','cow','sheep','goat','pig','horse','chicken','duck','goose','pigeon','dove','farm','village','town','city','home','house','school','shop','market','street','road','path','friend','neighbor','worker','teacher','student','farmer','carpenter','baker','blacksmith','merchant','traveler','wanderer','citizen','mayor','commoner','folk','people'],
+      mischief:['sneak','prank','bandit','outlaw','rogue','trick','jester','whiplash','lockpick','chaos','gremlin'],
+      weather:['storm','wind','rain','thunder','lightning','frost','snow','breeze','hurricane']
+    };
+
+    // DOM
+    const elNick=document.getElementById('nickname');
+    const elCategory=document.getElementById('category');
+    const elStatus=document.getElementById('status');
+    const elMust=document.getElementById('mustInclude');
+
+    let currentWords=[];
+
+    function mulberry32(a){return function(){let t=a+=0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296;}}
+    function hashStr(str){let h=2166136261>>>0;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+
+    function render(words){
+      elNick.innerHTML='';
+      words.forEach((w,i)=>{
+        const span=document.createElement('span'); span.className='chip'; span.textContent=w; elNick.appendChild(span);
+        if(i<words.length-1){ const g=document.createElement('span'); g.className='glue'; g.textContent=' '; elNick.appendChild(g); }
+      });
+    }
+
+    function pick(rng, list){ return list[Math.floor(rng()*list.length)]; }
+
+    function maskBadWord(w){
+      const s=String(w);
+      if(s.length<=2) return '*'.repeat(s.length);
+      return s[0] + '*'.repeat(Math.max(1, s.length-2)) + s[s.length-1];
+    }
+
+    function generate(){
+      const count=parseInt(document.getElementById('count').value,10);
+      const alliterate=document.getElementById('alliterate').value==='on';
+      const profanityOn=document.getElementById('profanity').value==='on';
+      const category=elCategory.value;
+
+      const rng=mulberry32(hashStr((category||'')+':' + (elMust.value||'') + ':'+Date.now()+':'+Math.random()));
+      let words=[];
+
+      // Alliteration seed
+      let letter=null;
+      if(alliterate){
+        const basePool = category && TOPIC[category]?.length ? TOPIC[category] : [...ANIMALS,...ROLES,...OBJECTS];
+        const sample = pick(rng, basePool);
+        letter = sample?.[0]?.toLowerCase() || null;
+      }
+
+      // adjectives
+      const adjCount=(count===3)?2:1;
+      for(let i=0;i<adjCount;i++){
+        let pool=ADJ;
+        if(letter){ const sub=ADJ.filter(w=>w[0]===letter); if(sub.length) pool=sub; }
+        words.push(pick(rng,pool));
+      }
+
+      // noun: from category if chosen, else random
+      let nounPool = category && TOPIC[category] ? TOPIC[category] : [...ANIMALS,...ROLES,...OBJECTS];
+      if(letter){ const sub=nounPool.filter(w=>w[0]===letter); if(sub.length) nounPool=sub; }
+      words.push(pick(rng,nounPool));
+
+      // must include override (exact keep, even if profane)
+      const must=(elMust.value||'').trim();
+      if(must){
+        const lowerSet=new Set(words.map(w=>String(w).toLowerCase()));
+        if(!lowerSet.has(must.toLowerCase())) words[0]=must;
+      }
+
+      // ===== Profanity policy handling =====
+      if(profanityOn){
+        // mask profane words unless it's the explicit must-include
+        const mustLower=must.toLowerCase();
+        words=words.map(w=>{
+          const wl=String(w).toLowerCase();
+          if(isBad(wl) && wl!==mustLower){ return maskBadWord(w); }
+          return w;
+        });
+      }else{
+        // if none profane, inject one
+        if(!words.some(w=>isBad(String(w).toLowerCase()))){
+          const pos=Math.floor(rng()*words.length);
+          words[pos]=pick(rng,BAD);
+        }
+      }
+
+      currentWords=words;
+      render(words);
+      elStatus.textContent='Generated';
+      elStatus.classList.add('ok');
+      setTimeout(()=>{ elStatus.classList.remove('ok'); elStatus.textContent='Ready'; },900);
+    }
+
+    document.getElementById('genBtn').addEventListener('click',generate);
+    document.getElementById('copyBtn').addEventListener('click',()=>{
+      navigator.clipboard.writeText(currentWords.join(' '));
+      elStatus.textContent='Copied';
+      elStatus.classList.add('ok');
+      setTimeout(()=>{ elStatus.textContent='Ready'; elStatus.classList.remove('ok'); },900);
+    });
+  </script>
+</body>
+</html>
