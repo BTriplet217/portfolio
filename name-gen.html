@@ -129,10 +129,10 @@
           </select>
         </div>
         <div>
-          <label for="profanity">Profanity filter</label>
+          <label for="profanity">Profanities?</label>
           <select id="profanity">
-            <option value="on" selected>On</option>
-            <option value="off">Off</option>
+            <option value="on" selected>No</option>
+            <option value="off">Yes</option>
           </select>
         </div>
       </div>
@@ -153,13 +153,17 @@
 
   <script>
     // ===== Profanity =====
-    const BAD=["fuck","shit","bitch","asshole","bastard","dick","piss","pussy","slut","whore","cunt","cock","bollocks","wank"];
+    const BAD=["fuck","shit","bitch","asshole","bastard","dick","piss","pussy","slut","whore","cunt","cock","bollocks","wank",
+"twat","prick","arse","bugger","tosser","bellend","bollock","shithead","douche","jackass",
+"fucker","goddamn","damn","hell","crap","bloody","shag","skank","tramp","slag","cum","jizz","buttplug","rimjob","handjob","blowjob","deepthroat",
+"boner","dildo","vibrator","clit","clitoris","chode","schlong","willy","pecker","wanker","numpty","git","twit","spastic"
+];
     const isBad=w=>BAD.includes(String(w).toLowerCase());
 
     // ===== FULL WORD BANKS (never shortened) =====
     const ADJ=['brisk','blunt','cosmic','crispy','daring','dusty','feral','fizzy','frosty','glitchy','gritty','hollow','hype','icy','inky','jaunty','jittery','lunar','mellow','neon','nifty','noisy','odd','peppered','plucky','prickly','quantum','raging','rusty','salty','sly','smoky','snappy','solar','spicy','spiral','stormy','tangled','tipsy','ultra','vexed','vivid','wavy','wonky','xeno','yawning','zesty','adamant','airy','amber','ancient','angular','arcane','ashen','atomic','baggy','barren','beaming','bitter','blazing','bleak','blurry','boiling','bouncy','briny','brittle','bronzed','bubbly','burnt','buzzing','chalky','charred','chewy','chilly','chunky','clammy','clanky','clumsy','cobalt','coarse','cobbled','cracked','creaky','crispened','crooked','crude','crunchy','cryptic','crystal','curvy','damp','dappled','dazed','dense','dewy','dingy','drippy','drowsy','dry','earthy','echoing','edgy','elastic','electric','ethereal','faded','fake','feeble','fiery','filmy','flaky','flaming','flimsy','foggy','foamy','fractured','fragile','frantic','frayed','frozen','fuzzy','gaudy','ghostly','gleaming','glossy','gnarled','gooey','grainy','grimy','grizzled','groggy','hairy','hazy','hefty','hoarse','humid','husky','icy-blue','jaded','jagged','jazzy','jerky','jolly','jumbled','keen','knotty','kooky','lacy','lanky','lavish','leafy','leathery','limp','loopy','lopsided','lush','lustrous','madcap','mangled','meaty','messy','misty','moldy','murky','musty','nagging','narrow','nutty','oily','oozing','opaque','orbital','pale','patchy','pebbled','perky','phantom','pitted','plump','porous','posh','quaking','quaint','queasy','quick','quiet','quirky','ragged','rainy','raw','reckless','reedy','reeky','ripe','rocky','rough','rowdy','rugged','runny','sandy','sappy','scaly','scarred','scrappy','scruffy','seedy','shadowy','shaky','shiny','shoddy','shrieking','shrunken','silken','silvery','sizzling','slack','slender','slick','slimy','sludgy','slushy','soaked','soapy','sooty','sour','sparkly','sparse','speedy','spiky','splintered','spongy','spry','squishy','stale','starchy','steamy','stiff','sticky','stony','stout','strange','stretchy','stubby','sturdy','subtle','sugary','swampy','swirly','tacky','tainted','teary','thorny','thrifty','thunderous','tidy','toasty','tough','trippy','trivial','turbid','twisted','uncanny','uneven','unkempt','unstable','untamed','vaporous','velvety','void','volcanic','wan','warped','watery','weathered','weepy','whiny','whirling','whiskered','whistling','wilted','windy','wiry','withered','woolly','woozy','wrinkled','yappy','yawpy','yeasty','yielding','zany','zingy','zonal','purple','red','orange','yellow','green','blue','black','white','pink'];
 
-    const ANIMALS=['badger','beagle','bison','bobcat','cougar','coyote','cricket','dolphin','donkey','dragonfly','eagle','ferret','fox','goose','hyena','ibis','jaguar','lemur','llama','marmot','narwhal','otter','panda','panther','quokka','raccoon','raven','seal','shark','sloth','sparrow','tortoise','urchin','viper','walrus','wombat','yak','zebra'];
+    const ANIMALS=['badger','beagle','bison','bobcat','cougar','coyote','cricket','dolphin','donkey','dragonfly','eagle','ferret','fox','goose','hyena','emu','jaguar','lemur','llama','marmot','narwhal','otter','panda','panther','quokka','raccoon','raven','seal','shark','sloth','sparrow','tortoise','urchin','viper','walrus','wombat','yak','zebra'];
 
     const OBJECTS=[
       'apricot','backpack','banjo','blender','boombox','cabbage','cassette','chisel','comet','crouton','doughnut','ember','gizmo','helmet','jukebox','keystone','lantern','marble','marzipan','nebula','noodle','oyster','paperclip','pogo','pylon','quartz','raindrop','satchel','skillet','spatula','sprinkle','tokens','trumpet','umbrella','velcro','yoyo','zeppelin',
@@ -196,7 +200,7 @@
       poison:['toxin','venom','acid','slime','mire','quagmire','fungus','spore','mold','plague','disease','rot','decay','filth','stench','smog','gas','fume','vapor','stink','ooze','seep','sludge','mucus','bile','pus','poison','serpent','cobra','fang','scorpion','sting','hornet','wasp','tarantula','black widow','toad','frog','wart','witch','cauldron','brew','potion','elixir','brewage','toxicant','contagion','hazard','radiation'],
       bug:['beetle','ant','bee','wasp','hornet','termite','locust','cicada','grasshopper','mantis','aphid','weevil','moth','butterfly','dragonfly','damselfly','mosquito','gnat','fly','spider','tick','mite','flea','silverfish','cockroach','firefly','ladybug','inchworm','caterpillar','grub','pupa','larva','worm','maggot','centipede','millipede','earwig','scorpionfly','lacewing','mayfly','stonefly','leafhopper','stickbug','walkingstick','beetleling','hive','colony','swarm','nest'],
       flying:['wing','feather','sky','air','cloud','wind','gust','breeze','draft','storm','hurricane','cyclone','zephyr','flight','glide','soar','flap','lift','hover','propeller','plane','jet','glider','kite','balloon','parachute','eagle','hawk','falcon','owl','gull','crow','raven','bat','swan','crane','stork','ibis','heron','albatross','vulture','condor','robin','sparrow','swallow','swift','martin','songbird','skylark','aeronaut'],
-      normal:['man','woman','child','family','dog','cat','mouse','rat','cow','sheep','goat','pig','horse','chicken','duck','goose','pigeon','dove','farm','village','town','city','home','house','school','shop','market','street','road','path','friend','neighbor','worker','teacher','student','farmer','carpenter','baker','blacksmith','merchant','traveler','wanderer','citizen','mayor','commoner','folk','people'],
+      normal:['man','woman','child','hick','farm','village','town','city','home','house','school','shop','market','street','road','path','friend','neighbor','worker','teacher','student','farmer','carpenter','baker','blacksmith','merchant','traveler','wanderer','citizen','mayor','commoner','folk','people'],
       mischief:['sneak','prank','bandit','outlaw','rogue','trick','jester','whiplash','lockpick','chaos','gremlin'],
       weather:['storm','wind','rain','thunder','lightning','frost','snow','breeze','hurricane']
     };
@@ -258,17 +262,21 @@
       if(letter){ const sub=nounPool.filter(w=>w[0]===letter); if(sub.length) nounPool=sub; }
       words.push(pick(rng,nounPool));
 
-      // must include override (exact keep, even if profane)
+      // ===== Must-include (random position, not always first) =====
       const must=(elMust.value||'').trim();
       if(must){
+        const mustLower=must.toLowerCase();
         const lowerSet=new Set(words.map(w=>String(w).toLowerCase()));
-        if(!lowerSet.has(must.toLowerCase())) words[0]=must;
+        if(!lowerSet.has(mustLower)){
+          const slot=Math.floor(rng()*words.length);
+          words[slot]=must;
+        }
       }
 
       // ===== Profanity policy handling =====
       if(profanityOn){
         // mask profane words unless it's the explicit must-include
-        const mustLower=must.toLowerCase();
+        const mustLower=(must||'').toLowerCase();
         words=words.map(w=>{
           const wl=String(w).toLowerCase();
           if(isBad(wl) && wl!==mustLower){ return maskBadWord(w); }
