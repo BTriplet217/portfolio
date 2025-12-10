@@ -1,9 +1,4 @@
-/* -----------------------------------------
-   Modern Resume Stylesheet
-   Author: ChatGPT (for Blaine Triplet)
-   ----------------------------------------- */
 
-/* ---------- Global Reset ---------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -163,3 +158,4 @@ hr {
     font-size: 15px;
   }
 }
+
