@@ -1169,20 +1169,10 @@ function __draw_background(context, ts, back_color) {
             var lum = m?(parseInt(m[1],16)*299+parseInt(m[2],16)*587+parseInt(m[3],16)*114)/255000:0;
             context.textAlign = "center"; context.textBaseline = "middle";
             context.globalAlpha = 1;
-            // Drop shadow for depth — no outline so number color shows pure
-            var shadowColor = lum < 0.45 ? 'rgba(0,0,0,0.85)' : 'rgba(255,255,255,0.7)';
-            context.shadowColor = shadowColor;
-            context.shadowBlur = fontSize * 0.12;
-            context.shadowOffsetX = fontSize * 0.04;
-            context.shadowOffsetY = fontSize * 0.04;
             context.fillStyle = color;
             context.fillText(text, cx, cy);
-            context.shadowColor = 'transparent';
             if (text == '6' || text == '9') {
-                context.shadowColor = shadowColor;
-                context.shadowBlur = fontSize * 0.12;
                 context.fillText('  .', cx, cy);
-                context.shadowColor = 'transparent';
             }
             var texture = new THREE.Texture(canvas);
             texture.needsUpdate = true;
@@ -1212,17 +1202,11 @@ function __draw_background(context, ts, back_color) {
             var lum = m?(parseInt(m[1],16)*299+parseInt(m[2],16)*587+parseInt(m[3],16)*114)/255000:0;
             context.textAlign = "center";
             context.textBaseline = "middle";
-            var shadowColor = lum < 0.45 ? 'rgba(0,0,0,0.85)' : 'rgba(255,255,255,0.7)';
             context.fillStyle = color;
             // Original sequential translate/rotate — each number drawn BEFORE translate
             for (var i in text) {
                 context.globalAlpha = 1;
-                context.shadowColor = shadowColor;
-                context.shadowBlur = fontSize * 0.12;
-                context.shadowOffsetX = fontSize * 0.04;
-                context.shadowOffsetY = fontSize * 0.04;
                 context.fillText(text[i], canvas.width / 2, canvas.height / 2 - ts * 0.3);
-                context.shadowColor = 'transparent';
                 context.translate(canvas.width / 2, canvas.height / 2);
                 context.rotate(Math.PI * 2 / 3);
                 context.translate(-canvas.width / 2, -canvas.height / 2);
