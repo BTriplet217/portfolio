@@ -115,8 +115,8 @@ input[type=range]{accent-color:#c8a44a;width:100%;}
     <div class="sHint">🎨 Color, texture &amp; number style for all dice. Shape never changes.</div>
     <div style="margin-bottom:14px;"><label class="sLbl">Skin Name</label><input id="skinName" type="text" value="My Skin" style="background:#1c1a3c;border:1px solid #28244c;border-radius:6px;padding:8px;color:#e2d8c8;font-family:'Crimson Pro',serif;font-size:14px;width:100%;"/></div>
     <div class="sRow">
-      <div><label class="sLbl">Die Color</label><div class="colorField"><input type="color" id="dieColorPicker" value="#202020"/><input type="text" id="dieColorText" value="#202020"/></div></div>
-      <div><label class="sLbl">Number Color</label><div class="colorField"><input type="color" id="numColorPicker" value="#ffee88"/><input type="text" id="numColorText" value="#ffee88"/></div></div>
+      <div><label class="sLbl">Die Color</label><div class="colorField"><input type="color" id="dieColorPicker" value="#000000"/><input type="text" id="dieColorText" value="#000000"/></div></div>
+      <div><label class="sLbl">Number Color</label><div class="colorField"><input type="color" id="numColorPicker" value="#ffffff"/><input type="text" id="numColorText" value="#ffffff"/></div></div>
     </div>
     <div style="margin-bottom:14px;"><label class="sLbl">Texture Preset</label>
       <select class="gSelect" id="presetSelect">
@@ -427,11 +427,11 @@ const DICE = (function() {
             shininess: 40,
             shading: THREE.FlatShading,
         },
-        label_color: '#ffee88', //numbers on dice
+        label_color: '#ffffff', //numbers on dice
         preset: 'none',
         speckle_color: '#ff0000',
         glow_intensity: 0.4,
-        dice_color: '#6d6d6d',
+        dice_color: '#000000',
         spot_light_color: '#efefef',
         desk_color: '#101010', //canvas background
         desk_opacity: 0.5,
@@ -1167,27 +1167,22 @@ function __draw_background(context, ts, back_color) {
             var cx = canvas.width/2, cy = canvas.height/2;
             var m = back_color.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
             var lum = m?(parseInt(m[1],16)*299+parseInt(m[2],16)*587+parseInt(m[3],16)*114)/255000:0;
-            // Dark bg (lum<0.45) → white outline; light bg → dark outline
-            // Dark bg → white outline; light bg → black outline.
-            var strokeColor = lum < 0.45 ? '#ffffff' : '#000000';
             context.textAlign = "center"; context.textBaseline = "middle";
-            context.lineWidth = fontSize * 0.14;
-            context.lineJoin = "round"; context.miterLimit = 2;
-            context.globalAlpha = 1;  // numbers always 100% opaque
-            // Thick contrasting outline (white on dark, black on light)
-            context.lineWidth = fontSize * 0.18;
-            context.strokeStyle = strokeColor;
-            context.strokeText(text, cx, cy);
-            // Color halo so dark number colors are visible: stroke in number color too
-            context.lineWidth = fontSize * 0.06;
-            context.strokeStyle = color;
-            context.strokeText(text, cx, cy);
+            context.globalAlpha = 1;
+            // Drop shadow for depth — no outline so number color shows pure
+            var shadowColor = lum < 0.45 ? 'rgba(0,0,0,0.85)' : 'rgba(255,255,255,0.7)';
+            context.shadowColor = shadowColor;
+            context.shadowBlur = fontSize * 0.12;
+            context.shadowOffsetX = fontSize * 0.04;
+            context.shadowOffsetY = fontSize * 0.04;
             context.fillStyle = color;
             context.fillText(text, cx, cy);
+            context.shadowColor = 'transparent';
             if (text == '6' || text == '9') {
-                context.strokeText('  .', cx, cy);
-                context.fillStyle = color;
+                context.shadowColor = shadowColor;
+                context.shadowBlur = fontSize * 0.12;
                 context.fillText('  .', cx, cy);
+                context.shadowColor = 'transparent';
             }
             var texture = new THREE.Texture(canvas);
             texture.needsUpdate = true;
@@ -1215,22 +1210,19 @@ function __draw_background(context, ts, back_color) {
             __draw_background(context, ts, back_color);
             var m = back_color.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
             var lum = m?(parseInt(m[1],16)*299+parseInt(m[2],16)*587+parseInt(m[3],16)*114)/255000:0;
-            var strokeColor = lum < 0.45 ? '#ffffff' : '#000000';
             context.textAlign = "center";
             context.textBaseline = "middle";
-            context.lineWidth = fontSize * 0.14;
-            context.lineJoin = "round"; context.miterLimit = 2;
+            var shadowColor = lum < 0.45 ? 'rgba(0,0,0,0.85)' : 'rgba(255,255,255,0.7)';
             context.fillStyle = color;
             // Original sequential translate/rotate — each number drawn BEFORE translate
             for (var i in text) {
-                context.globalAlpha = 1;  // numbers always 100% opaque
-                context.lineWidth = fontSize * 0.18;
-                context.strokeStyle = strokeColor;
-                context.strokeText(text[i], canvas.width / 2, canvas.height / 2 - ts * 0.3);
-                context.lineWidth = fontSize * 0.06;
-                context.strokeStyle = color;
-                context.strokeText(text[i], canvas.width / 2, canvas.height / 2 - ts * 0.3);
+                context.globalAlpha = 1;
+                context.shadowColor = shadowColor;
+                context.shadowBlur = fontSize * 0.12;
+                context.shadowOffsetX = fontSize * 0.04;
+                context.shadowOffsetY = fontSize * 0.04;
                 context.fillText(text[i], canvas.width / 2, canvas.height / 2 - ts * 0.3);
+                context.shadowColor = 'transparent';
                 context.translate(canvas.width / 2, canvas.height / 2);
                 context.rotate(Math.PI * 2 / 3);
                 context.translate(-canvas.width / 2, -canvas.height / 2);
@@ -1492,11 +1484,13 @@ function __draw_background(context, ts, back_color) {
 
 <script>
 "use strict";
+var _PALETTE=['#b82020','#1a7a32','#1a4eb8','#6a22b8'];
+function _rc(){return _PALETTE[Math.floor(Math.random()*_PALETTE.length)];}
 var DIE_TYPES=[
-  {t:'d4',color:'#c03030',label:'d4'},{t:'d6',color:'#c07020',label:'d6'},
-  {t:'d8',color:'#207840',label:'d8'},{t:'d10',color:'#2060b8',label:'d10'},
-  {t:'d12',color:'#7030a8',label:'d12'},{t:'d20',color:'#5858a8',label:'d20'},
-  {t:'d100',color:'#a04070',label:'d%'},
+  {t:'d4',color:_rc(),label:'d4'},{t:'d6',color:_rc(),label:'d6'},
+  {t:'d8',color:_rc(),label:'d8'},{t:'d10',color:_rc(),label:'d10'},
+  {t:'d12',color:_rc(),label:'d12'},{t:'d20',color:_rc(),label:'d20'},
+  {t:'d100',color:_rc(),label:'d%'},
 ];
 var qty={d4:0,d6:0,d8:0,d10:0,d12:0,d20:1,d100:0};
 var box=null,rollHistory=[],currentSkins=[],activeSkinId=null,editingSkinId=null;
@@ -1591,11 +1585,11 @@ function updateDiceCountOverlay(){
 function clearResults(){document.getElementById('resultOverlay').style.display='none';document.getElementById('totalBadge').style.display='none';}
 
 function applySkin(sk){
-  var opts={diceColor:sk.color||'#202020',labelColor:sk.numColor||'#ffee88',preset:sk.preset||'none',speckleColor:sk.speckleColor||'#ffffff',speckleDensity:sk.speckleDensity||50,diceTransparency:(sk.diceTransparency||45)/100,scale:sk.scale||40};
+  var opts={diceColor:sk.color||'#000000',labelColor:sk.numColor||'#ffffff',preset:sk.preset||'none',speckleColor:sk.speckleColor||'#ffffff',speckleDensity:sk.speckleDensity||50,diceTransparency:(sk.diceTransparency||45)/100,scale:sk.scale||40};
   if(sk.textureDataUrl){var img=new Image();img.onload=function(){DICE.setStyle(Object.assign({},opts,{textureImage:img}));if(box)box.show_row(buildTypeArr());};img.onerror=function(){DICE.setStyle(Object.assign({},opts,{textureImage:null}));if(box)box.show_row(buildTypeArr());};img.src=sk.textureDataUrl;}
   else{DICE.setStyle(Object.assign({},opts,{textureImage:null}));if(box)box.show_row(buildTypeArr());}
 }
-function resetSkin(){DICE.setStyle({diceColor:'#202020',labelColor:'#ffee88',preset:'none',speckleColor:'#ffffff',speckleDensity:50,scale:40,textureImage:null});if(box)box.show_row(buildTypeArr());}
+function resetSkin(){DICE.setStyle({diceColor:'#000000',labelColor:'#ffffff',preset:'none',speckleColor:'#ffffff',speckleDensity:50,scale:40,textureImage:null});if(box)box.show_row(buildTypeArr());}
 function updateBanner(){
   var banner=document.getElementById('skinBanner'),dot=document.getElementById('skinBannerDot'),lbl=document.getElementById('skinBannerLabel');
   if(activeSkinId){var sk=currentSkins.find(function(s){return s.id===activeSkinId;});if(sk){banner.style.display='flex';dot.style.background=sk.color;lbl.textContent='Skin: '+sk.name;banner.style.background=sk.color+'22';banner.style.border='1px solid '+sk.color+'55';return;}}
@@ -1661,8 +1655,8 @@ function openSettings(skin){
   document.getElementById('skinName').value=skin?skin.name:'My Skin';
   document.getElementById('dieColorPicker').value=skin?skin.color:'#202020';
   document.getElementById('dieColorText').value=skin?skin.color:'#202020';
-  document.getElementById('numColorPicker').value=skin?(skin.numColor||'#ffee88'):'#ffee88';
-  document.getElementById('numColorText').value=skin?(skin.numColor||'#ffee88'):'#ffee88';
+  document.getElementById('numColorPicker').value=skin?(skin.numColor||'#ffffff'):'#ffffff';
+  document.getElementById('numColorText').value=skin?(skin.numColor||'#ffffff'):'#ffffff';
   document.getElementById('presetSelect').value=skin?(skin.preset||'none'):'none';
   document.getElementById('speckleColorPicker').value=skin?(skin.speckleColor||'#ffffff'):'#ffffff';
   document.getElementById('speckleColorText').value=skin?(skin.speckleColor||'#ffffff'):'#ffffff';
